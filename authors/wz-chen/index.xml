@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WZ Chen</title>
-    <link>http://localhost:1313/weiz-98/authors/wz-chen/</link>
+    <link>https://github.com/weiz-98/authors/wz-chen/</link>
     <description>Recent content on WZ Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Wed, 12 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/weiz-98/authors/wz-chen/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/weiz-98/authors/wz-chen/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/weiz-98/authors/</link>
+      <link>https://github.com/weiz-98/authors/</link>
       <pubDate>Wed, 12 Oct 2022 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>http://localhost:1313/weiz-98/authors/</guid>
+      <guid>https://github.com/weiz-98/authors/</guid>
       <description>文章簡介</description>
       
     </item>
