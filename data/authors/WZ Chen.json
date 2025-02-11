@@ -1,0 +1,9 @@
+{
+    "name": "WZ Chen",
+    "image" : "img/seal.jpg",
+    "bio": "菜鳥 coder",
+    "social": [
+        { "linkedin": "https://www.linkedin.com/in/weizhe-chen-6b28a5131/" },
+        { "github": "https://github.com/weiz-98" }
+    ]
+}
