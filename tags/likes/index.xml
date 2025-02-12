@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Likes on WZ Chen</title>
+    <title>Likes on Blowfish</title>
     <link>https://weiz-98.github.io/tags/likes/</link>
-    <description>Recent content in Likes on WZ Chen</description>
+    <description>Recent content in Likes on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
-    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
-    <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/likes/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
+    <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
+    <copyright>© 2025 Blowfish</copyright>
+    <atom:link href="https://weiz-98.github.io/tags/likes/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Firebase: Views &amp; Likes</title>
       <link>https://weiz-98.github.io/docs/firebase-views/</link>
-      <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
-      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>nuno@n9o.xyz (Blowfish)</author>
       <guid>https://weiz-98.github.io/docs/firebase-views/</guid>
-      <description>Learn how to integrate Firebase and get dynamic data for views and likes.</description>
-      
+      <description>&lt;p&gt;In order to be able to support dynamic data across your website we&amp;rsquo;ve added the support to integrate Firebase. This will allow you to use the views feature across lists and posts.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://weiz-98.github.io/docs/firebase-views/featured.svg" />
     </item>
     
   </channel>
