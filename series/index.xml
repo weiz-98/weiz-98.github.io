@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on Blowfish</title>
+    <title>Series on WZ Chen</title>
     <link>https://weiz-98.github.io/series/</link>
-    <description>Recent content in Series on Blowfish</description>
+    <description>Recent content in Series on WZ Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
-    <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
-    <copyright>© 2025 Blowfish</copyright>
+    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
+    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
+    <copyright>© 2025 WZ Chen</copyright>
     <atom:link href="https://weiz-98.github.io/series/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Documentation</title>
-      <link>https://weiz-98.github.io/series/documentation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>nuno@n9o.xyz (Blowfish)</author>
-      <guid>https://weiz-98.github.io/series/documentation/</guid>
-      <description></description>
-      
-    </item>
     
   </channel>
 </rss>
