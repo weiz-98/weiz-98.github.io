@@ -9,15 +9,25 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Wed, 12 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/authors/wz-chen/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/authors/wz-chen/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Remove Element</title>
+      <link>https://weiz-98.github.io/docs/remove-element/</link>
+      <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/remove-element/</guid>
+      <description>Leetcode #27 Remove Element</description>
+      
+    </item>
     
     <item>
       <title>About Me</title>
-      <link>https://weiz-98.github.io/authors/</link>
-      <pubDate>Wed, 12 Oct 2022 00:00:00 +0000</pubDate>
+      <link>https://weiz-98.github.io/self-introduction/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/authors/</guid>
-      <description>文章簡介</description>
+      <guid>https://weiz-98.github.io/self-introduction/</guid>
+      <description>self-introduction</description>
       
     </item>
     

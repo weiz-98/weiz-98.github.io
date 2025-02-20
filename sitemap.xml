@@ -15,6 +15,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://weiz-98.github.io/authors/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://weiz-98.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2025-01-02T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -51,14 +57,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://weiz-98.github.io/authors/</loc>
-    <lastmod>2022-10-12T00:00:00+00:00</lastmod>
+    <loc>https://weiz-98.github.io/authors/wz-chen/</loc>
+    <lastmod>2025-01-02T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://weiz-98.github.io/authors/wz-chen/</loc>
-    <lastmod>2022-10-12T00:00:00+00:00</lastmod>
+    <loc>https://weiz-98.github.io/self-introduction/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
