@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Views on WZ Chen</title>
-    <link>https://weiz-98.github.io/tags/views/</link>
+    <link>http://localhost:1313/tags/views/</link>
     <description>Recent content in Views on WZ Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/views/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/views/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Firebase: Views &amp; Likes</title>
-      <link>https://weiz-98.github.io/docs/firebase-views/</link>
+      <link>http://localhost:1313/docs/firebase-views/</link>
       <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/firebase-views/</guid>
+      <guid>http://localhost:1313/docs/firebase-views/</guid>
       <description>Learn how to integrate Firebase and get dynamic data for views and likes.</description>
       
     </item>

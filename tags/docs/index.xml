@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on WZ Chen</title>
-    <link>https://weiz-98.github.io/tags/docs/</link>
+    <link>http://localhost:1313/tags/docs/</link>
     <description>Recent content in Docs on WZ Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Sat, 08 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mermaid</title>
-      <link>https://weiz-98.github.io/docs/mermaid/</link>
+      <link>http://localhost:1313/docs/mermaid/</link>
       <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/mermaid/</guid>
+      <guid>http://localhost:1313/docs/mermaid/</guid>
       <description>Mermaid</description>
       
     </item>
     
     <item>
       <title>Getting Started</title>
-      <link>https://weiz-98.github.io/docs/getting-started/</link>
+      <link>http://localhost:1313/docs/getting-started/</link>
       <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/getting-started/</guid>
+      <guid>http://localhost:1313/docs/getting-started/</guid>
       <description>All the front matter variables available in Blowfish.</description>
       
     </item>
     
     <item>
       <title>Firebase: Views &amp; Likes</title>
-      <link>https://weiz-98.github.io/docs/firebase-views/</link>
+      <link>http://localhost:1313/docs/firebase-views/</link>
       <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/firebase-views/</guid>
+      <guid>http://localhost:1313/docs/firebase-views/</guid>
       <description>Learn how to integrate Firebase and get dynamic data for views and likes.</description>
       
     </item>
     
     <item>
       <title>Front Matter</title>
-      <link>https://weiz-98.github.io/docs/front-matter/</link>
+      <link>http://localhost:1313/docs/front-matter/</link>
       <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/front-matter/</guid>
+      <guid>http://localhost:1313/docs/front-matter/</guid>
       <description>All the front matter variables available in Blowfish.</description>
       
     </item>
     
     <item>
       <title>Homepage Layout</title>
-      <link>https://weiz-98.github.io/docs/papa/</link>
+      <link>http://localhost:1313/docs/papa/</link>
       <pubDate>Tue, 08 Mar 2022 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/docs/papa/</guid>
+      <guid>http://localhost:1313/docs/papa/</guid>
       <description>Configuring the homepage layout in the Blowfish theme.</description>
       
     </item>

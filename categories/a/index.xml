@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A on WZ Chen</title>
+    <link>http://localhost:1313/categories/a/</link>
+    <description>Recent content in A on WZ Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
+    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
+    <copyright>© 2025 WZ Chen</copyright>
+    <atom:link href="http://localhost:1313/categories/a/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>
