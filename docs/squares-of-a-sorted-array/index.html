@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Binary Search &middot; WZ Chen</title>
-  <meta name="title" content="Binary Search &middot; WZ Chen" />
+  <title>Squares of a Sorted Array &middot; WZ Chen</title>
+  <meta name="title" content="Squares of a Sorted Array &middot; WZ Chen" />
   
-  <meta name="description" content="Leetcode #704 Binary Search" />
+  <meta name="description" content="Leetcode #704 Squares of a Sorted Array" />
   <meta name="keywords" content="C&#43;&#43;, Easy, " />
   
   
-  <link rel="canonical" href="https://weiz-98.github.io/docs/binary-search/" />
+  <link rel="canonical" href="https://weiz-98.github.io/docs/squares-of-a-sorted-array/" />
   
   
   
@@ -67,22 +67,22 @@
   
   
   
-  <meta property="og:url" content="https://weiz-98.github.io/docs/binary-search/">
+  <meta property="og:url" content="https://weiz-98.github.io/docs/squares-of-a-sorted-array/">
   <meta property="og:site_name" content="WZ Chen">
-  <meta property="og:title" content="Binary Search">
-  <meta property="og:description" content="Leetcode #704 Binary Search">
+  <meta property="og:title" content="Squares of a Sorted Array">
+  <meta property="og:description" content="Leetcode #704 Squares of a Sorted Array">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-05-03T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-05-03T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-05-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-04T00:00:00+00:00">
     <meta property="article:tag" content="C&#43;&#43;">
     <meta property="article:tag" content="Easy">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Binary Search">
-  <meta name="twitter:description" content="Leetcode #704 Binary Search">
+  <meta name="twitter:title" content="Squares of a Sorted Array">
+  <meta name="twitter:description" content="Leetcode #704 Squares of a Sorted Array">
 
   
   <script type="application/ld+json">
@@ -90,26 +90,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "All my post",
-    "name": "Binary Search",
-    "headline": "Binary Search",
+    "name": "Squares of a Sorted Array",
+    "headline": "Squares of a Sorted Array",
     
-    "abstract": "Leetcode #704 Binary Search",
+    "abstract": "Leetcode #704 Squares of a Sorted Array",
     "inLanguage": "en",
-    "url" : "https:\/\/weiz-98.github.io\/docs\/binary-search\/",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/squares-of-a-sorted-array\/",
     "author" : {
       "@type": "Person",
       "name": "WZ Chen"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-05-03T00:00:00\u002b00:00",
-    "datePublished": "2025-05-03T00:00:00\u002b00:00",
+    "dateCreated": "2025-05-04T00:00:00\u002b00:00",
+    "datePublished": "2025-05-04T00:00:00\u002b00:00",
     
-    "dateModified": "2025-05-03T00:00:00\u002b00:00",
+    "dateModified": "2025-05-04T00:00:00\u002b00:00",
     
     "keywords": ["C++","Easy"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "378"
+    "wordCount": "275"
   }]
   </script>
 
@@ -519,8 +519,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/binary-search/"
-      >Binary Search</a
+      href="/docs/squares-of-a-sorted-array/"
+      >Squares of a Sorted Array</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -529,7 +529,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Binary Search
+      Squares of a Sorted Array
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -572,7 +572,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-03T00:00:00&#43;00:00">2025-05-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-05-04T00:00:00&#43;00:00">2025-05-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -746,13 +746,8 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#描述">描述</a>
-      <ul>
-        <li><a href="#二分法的前提條件">二分法的前提條件</a></li>
-      </ul>
-    </li>
+    <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
   </ul>
 </nav>
   </div>
@@ -766,13 +761,8 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#描述">描述</a>
-      <ul>
-        <li><a href="#二分法的前提條件">二分法的前提條件</a></li>
-      </ul>
-    </li>
+    <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
   </ul>
 </nav>
   </div>
@@ -857,12 +847,12 @@
           <p><strong>Leetcode link :</strong>
 <a
   class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-  href="https://leetcode.com/problems/binary-search/"
+  href="https://leetcode.com/problems/squares-of-a-sorted-array/"
   
   
   role="button"
 >
-  704. Binary Search
+  977. Squares of a Sorted Array
 </a>
 </p>
 
@@ -877,21 +867,8 @@
     </span>        
     
 </h2>
-
-
-<h3 class="relative group">二分法的前提條件 
-    <div id="%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E5%89%8D%E6%8F%90%E6%A2%9D%E4%BB%B6" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E5%89%8D%E6%8F%90%E6%A2%9D%E4%BB%B6" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
 <ul>
-<li>數組為<strong>有序數組</strong></li>
-<li>數組中<strong>無重複元素</strong>，一旦有重複元素，使用二分查找法傳回的元素下標可能不是唯一的</li>
+<li>給一個按 <strong>非遞減順序</strong> 排序的整數數組 nums，返回 <strong>每個數字的平方</strong> 組成的新數組，要求也按 <strong>非遞減順序</strong> 排序。</li>
 </ul>
 
 
@@ -939,53 +916,71 @@
     
       style="color: #f7f2f2"
     ><ul>
-<li>左閉右閉即[left, right]</li>
-<li>左閉右開即[left, right)</li>
+<li>暴力解法 O(n^2)：兩層 for 迴圈，一個 for 迴圈遍歷數組元素 ，第二個 for 迴圈更新數組</li>
+<li>雙指針 O(n)：
+<ul>
+<li>快指標：尋找新數組的元素 ，新數組就是不含目標元素的數組</li>
+<li>慢指標：指向更新新數組下標的位置</li>
+</ul>
+</li>
+<li>以上兩個方法空間皆為 O(1)</li>
 </ul>
 </span>
 </div>
 
-
-
-<h2 class="relative group">解法 
-    <div id="%E8%A7%A3%E6%B3%95" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A7%A3%E6%B3%95" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="c1">// 左閉右閉
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">search</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 左閉右閉，[left, right]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>     <span class="c1">// 左閉右開，即：[left, right)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左閉右閉，当left==right，区间[left, right]依然有效，所以用 &lt;=
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 左閉右開，因为left == right的时候，在[left, right)是无效的空间，所以使用 &lt;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">((</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 左閉右閉
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">right</span> <span class="o">=</span> <span class="n">middle</span><span class="p">;</span> <span class="c1">// 左閉右開
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">left</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// nums[middle] == target
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="n">middle</span><span class="p">;</span> <span class="c1">// 数组中找到目标值，直接返回下标
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">removeElement</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">slowIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">fastIndex</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">fastIndex</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fastIndex</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">slowIndex</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fastIndex</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 未找到目标值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">slowIndex</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #BC243C"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #f7f2f2"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+<path fill="currentColor"  d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-2.8-5.6-5.6-11.2-9.8-16.8l-50.6 58.8s-81.4-103.6-87.1-110.6C133.1 243.8 112 273.2 112 306.8C112 375.4 162.6 416 225.7 416z"/></svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #f7f2f2"
+    ><p>這題就不能使用 fastIndex &lt;= nums.size() - 1 了</p>
+<p>雖然是習慣的左閉右閉，但是當 nums.size() == 0 時，就會有 error</p>
+</span>
+</div>
+
+
   
   
   
@@ -1018,11 +1013,7 @@
   <span
     
       style="color: #f7f2f2"
-    ><ul>
-<li>int middle = left + ((right - left) / 2); 防止溢出 等同于(left + right)/2</li>
-<li>採用左閉右閉即 [left, right] 即可，左右剛好符合 Array 的編號</li>
-</ul>
-</span>
+    >考慮到 nums.size() == 0 時，就採取 fastIndex &lt; nums.size()</span>
 </div>
 
 
@@ -1041,6 +1032,148 @@
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/binary-search/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/binary-search/">Binary Search</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-03T00:00:00&#43;00:00">2025-05-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/leetcode/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Leetcode
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/c&#43;&#43;/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    C&#43;&#43;
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Leetcode #704 Binary Search
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
   
   
 
@@ -1309,8 +1442,8 @@
           
         
       <script>
-        var oid = "views_docs\/Binary Search\/index.md"
-        var oid_likes = "likes_docs\/Binary Search\/index.md"
+        var oid = "views_docs\/Squares of a Sorted Array\/index.md"
+        var oid_likes = "likes_docs\/Squares of a Sorted Array\/index.md"
       </script>
       
       
@@ -1333,40 +1466,18 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/squares-of-a-sorted-array/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Squares of a Sorted Array</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-05-04T00:00:00&#43;00:00">2025-05-04</time>
-                  
-                </span>
-              </span>
-            </a>
-          
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/remove-element/">
+            <a class="flex text-right group ml-3" href="/docs/binary-search/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Remove Element</span
+                  >Binary Search</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-01-02T00:00:00&#43;00:00">2025-01-02</time>
+                    <time datetime="2025-05-03T00:00:00&#43;00:00">2025-05-03</time>
                   
                 </span>
               </span>
