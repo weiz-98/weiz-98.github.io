@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Medium on WZ Chen</title>
+    <link>https://weiz-98.github.io/tags/medium/</link>
+    <description>Recent content in Medium on WZ Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
+    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
+    <copyright>© 2025 WZ Chen</copyright>
+    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Minimum Size Subarray Sum</title>
+      <link>https://weiz-98.github.io/docs/minimum-size-subarray-sum/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/minimum-size-subarray-sum/</guid>
+      <description>Minimum Size Subarray Sum</description>
+      
+    </item>
+    
+  </channel>
+</rss>

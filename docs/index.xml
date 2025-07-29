@@ -9,7 +9,17 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Minimum Size Subarray Sum</title>
+      <link>https://weiz-98.github.io/docs/minimum-size-subarray-sum/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/minimum-size-subarray-sum/</guid>
+      <description>Minimum Size Subarray Sum</description>
+      
+    </item>
     
     <item>
       <title>Squares of a Sorted Array</title>
@@ -17,7 +27,7 @@
       <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/squares-of-a-sorted-array/</guid>
-      <description>Leetcode #704 Squares of a Sorted Array</description>
+      <description>Squares of a Sorted Array</description>
       
     </item>
     
@@ -37,7 +47,7 @@
       <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/remove-element/</guid>
-      <description>Leetcode #27 Remove Element</description>
+      <description>Remove Element</description>
       
     </item>
     
