@@ -12,7 +12,7 @@
   <meta name="title" content="Squares of a Sorted Array &middot; WZ Chen" />
   
   <meta name="description" content="Squares of a Sorted Array" />
-  <meta name="keywords" content="C&#43;&#43;, Easy, " />
+  <meta name="keywords" content="C&#43;&#43;, Easy, Array, " />
   
   
   <link rel="canonical" href="https://weiz-98.github.io/docs/squares-of-a-sorted-array/" />
@@ -78,6 +78,7 @@
     <meta property="article:modified_time" content="2025-05-04T00:00:00+00:00">
     <meta property="article:tag" content="C&#43;&#43;">
     <meta property="article:tag" content="Easy">
+    <meta property="article:tag" content="Array">
 
   
   <meta name="twitter:card" content="summary">
@@ -106,10 +107,10 @@
     
     "dateModified": "2025-05-04T00:00:00\u002b00:00",
     
-    "keywords": ["C++","Easy"],
+    "keywords": ["C++","Easy","Array"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "280"
+    "wordCount": "336"
   }]
   </script>
 
@@ -640,6 +641,14 @@
 </span>
   </span>
   
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/array/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Array
+  </span>
+</span>
+  </span>
+  
   
   
   
@@ -748,8 +757,6 @@
   <ul>
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
-    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -765,8 +772,6 @@
   <ul>
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
-    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -919,132 +924,54 @@
   <span
     
       style="color: #f7f2f2"
-    ><ul>
-<li>暴力解法 O(n^2)：兩層 for 迴圈，一個 for 迴圈遍歷數組元素 ，第二個 for 迴圈更新數組</li>
-<li>雙指針 O(n)：
+    ><blockquote>
 <ul>
-<li>快指標：尋找新數組的元素 ，新數組就是不含目標元素的數組</li>
-<li>慢指標：指向更新新數組下標的位置</li>
+<li>暴力解法 O(n + nlogn)：每個數平方之後，排個序</li>
+<li>雙指標法：O(n)：
+<ul>
+<li>數組其實是有序的， 只不過負數平方之後可能變成最大數了。</li>
+<li>那麼陣列平方的<code>最大值就在陣列的兩端</code>，不是最左邊就是最右邊，不可能是中間。</li>
+<li>i 指向起始位置，j 指向終止位置。</li>
 </ul>
 </li>
-<li>以上兩個方法空間皆為 O(1)</li>
-</ul>
+</ul></blockquote>
 </span>
 </div>
 
-
-
-<h2 class="relative group">解法 
-    <div id="%E8%A7%A3%E6%B3%95" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A7%A3%E6%B3%95" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">removeElement</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">slowIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fastIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">fastIndex</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">fastIndex</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">val</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fastIndex</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">slowIndex</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fastIndex</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sortedSquares</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">slowIndex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">A</span><span class="p">.</span><span class="n">end</span><span class="p">());</span> <span class="c1">// 快速排序
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">A</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div>
-
-<h2 class="relative group">注意 
-    <div id="%E6%B3%A8%E6%84%8F" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E6%84%8F" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-
-  
-  
-  
-  
-
-
-
-<div
-  
-    class="flex px-4 py-3 rounded-md"
-    style="background-color: #BC243C"
-  >
-
-  <span
-    
-      class="ltr:pr-3 rtl:pl-3 flex items-center"
-      style="color: #f7f2f2"
-    >
-
-    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-<path fill="currentColor"  d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-2.8-5.6-5.6-11.2-9.8-16.8l-50.6 58.8s-81.4-103.6-87.1-110.6C133.1 243.8 112 273.2 112 306.8C112 375.4 162.6 416 225.7 416z"/></svg>
-  </span>
-
-
-  </span>
-
-  <span
-    
-      style="color: #f7f2f2"
-    ><p>這題就不能使用 fastIndex &lt;= nums.size() - 1 了</p>
-<p>雖然是習慣的左閉右閉，但是當 nums.size() == 0 時，就會有 error</p>
-</span>
-</div>
-
-
-  
-  
-  
-  
-
-
-
-<div
-  
-    class="flex px-4 py-3 rounded-md"
-    style="background-color: #88B04B"
-  >
-
-  <span
-    
-      class="ltr:pr-3 rtl:pl-3 flex items-center"
-      style="color: #f7f2f2"
-    >
-
-    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
-
-  </span>
-
-
-  </span>
-
-  <span
-    
-      style="color: #f7f2f2"
-    >考慮到 nums.size() == 0 時，就採取 fastIndex &lt; nums.size()</span>
-</div>
-
-
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n + nlogn)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sortedSquares</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">j</span><span class="p">;)</span> <span class="p">{</span> <span class="c1">// 注意这里要i &lt;= j，因为最后要处理两个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
+</span></span></span></code></pre></div>
           
           
           
@@ -1176,6 +1103,14 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/array/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Array
   </span>
 </span>
   </span>
@@ -1318,6 +1253,14 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/array/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Array
   </span>
 </span>
   </span>
