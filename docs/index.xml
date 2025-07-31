@@ -9,7 +9,7 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Design Linked List</title>
@@ -18,6 +18,16 @@
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/design-linked-list/</guid>
       <description>Design Linked List</description>
+      
+    </item>
+    
+    <item>
+      <title>Linked List Cycle II</title>
+      <link>https://weiz-98.github.io/docs/linked-list-cycle-ii/</link>
+      <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/linked-list-cycle-ii/</guid>
+      <description>Linked List Cycle II</description>
       
     </item>
     
