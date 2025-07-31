@@ -12,6 +12,16 @@
     <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Design Linked List</title>
+      <link>https://weiz-98.github.io/docs/design-linked-list/</link>
+      <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/design-linked-list/</guid>
+      <description>Design Linked List</description>
+      
+    </item>
+    
+    <item>
       <title>Remove Linked List Elements</title>
       <link>https://weiz-98.github.io/docs/remove-linked-list-elements/</link>
       <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
@@ -58,6 +68,16 @@
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/binary-search/</guid>
       <description>Binary Search</description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse Linked List</title>
+      <link>https://weiz-98.github.io/docs/reverse-linked-list/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/reverse-linked-list/</guid>
+      <description>Reverse Linked List</description>
       
     </item>
     
