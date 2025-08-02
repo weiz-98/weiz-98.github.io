@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Valid Anagram &middot; WZ Chen</title>
-  <meta name="title" content="Valid Anagram &middot; WZ Chen" />
+  <title>3Sum &middot; WZ Chen</title>
+  <meta name="title" content="3Sum &middot; WZ Chen" />
   
-  <meta name="description" content="Valid Anagram" />
-  <meta name="keywords" content="C&#43;&#43;, Easy, Hashing, " />
+  <meta name="description" content="3Sum" />
+  <meta name="keywords" content="C&#43;&#43;, Medium, Hashing, " />
   
   
-  <link rel="canonical" href="https://weiz-98.github.io/docs/valid-anagram/" />
+  <link rel="canonical" href="https://weiz-98.github.io/docs/3sum/" />
   
   
   
@@ -67,23 +67,23 @@
   
   
   
-  <meta property="og:url" content="https://weiz-98.github.io/docs/valid-anagram/">
+  <meta property="og:url" content="https://weiz-98.github.io/docs/3sum/">
   <meta property="og:site_name" content="WZ Chen">
-  <meta property="og:title" content="Valid Anagram">
-  <meta property="og:description" content="Valid Anagram">
+  <meta property="og:title" content="3Sum">
+  <meta property="og:description" content="3Sum">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2025-08-02T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-02T00:00:00+00:00">
     <meta property="article:tag" content="C&#43;&#43;">
-    <meta property="article:tag" content="Easy">
+    <meta property="article:tag" content="Medium">
     <meta property="article:tag" content="Hashing">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valid Anagram">
-  <meta name="twitter:description" content="Valid Anagram">
+  <meta name="twitter:title" content="3Sum">
+  <meta name="twitter:description" content="3Sum">
 
   
   <script type="application/ld+json">
@@ -91,12 +91,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "All my post",
-    "name": "Valid Anagram",
-    "headline": "Valid Anagram",
+    "name": "3Sum",
+    "headline": "3Sum",
     
-    "abstract": "Valid Anagram",
+    "abstract": "3Sum",
     "inLanguage": "en",
-    "url" : "https:\/\/weiz-98.github.io\/docs\/valid-anagram\/",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/3sum\/",
     "author" : {
       "@type": "Person",
       "name": "WZ Chen"
@@ -107,10 +107,10 @@
     
     "dateModified": "2025-08-02T00:00:00\u002b00:00",
     
-    "keywords": ["C++","Easy","Hashing"],
+    "keywords": ["C++","Medium","Hashing"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "372"
+    "wordCount": "1316"
   }]
   </script>
 
@@ -520,8 +520,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/valid-anagram/"
-      >Valid Anagram</a
+      href="/docs/3sum/"
+      >3Sum</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -530,7 +530,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Valid Anagram
+      3Sum
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -573,7 +573,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -633,10 +633,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
+    Medium
   </span>
 </span>
   </span>
@@ -758,6 +758,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -774,6 +775,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -858,12 +860,12 @@
           <p><strong>Leetcode link :</strong>
 <a
   class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-  href="https://leetcode.com/problems/valid-anagram/"
+  href="https://leetcode.com/problems/3sum/"
   
   
   role="button"
 >
-  Valid Anagram
+  3Sum
 </a>
 </p>
 
@@ -880,16 +882,13 @@
 </h2>
 <ul>
 <li>
-<p>給定兩個字串 s 和 t ，寫一個函數來判斷 t 是否是 s 的字母異位詞。</p>
+<p>給你一個包含 n 個整數的陣列 nums，判斷 nums 中是否存在三個元素 a，b，c ，使得 a + b + c = 0 ？請你找出所有符合條件且不重複的三元組。</p>
 </li>
 <li>
-<p>範例 1: 輸入: s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo; 輸出: true</p>
+<p>注意： 答案中不可以包含重複的三元組。</p>
 </li>
 <li>
-<p>範例 2: 輸入: s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo; 輸出: false</p>
-</li>
-<li>
-<p>說明: 你可以假設字串只包含小寫字母。</p>
+<p>範例：給定數組 nums = [-1, 0, 1, 2, -1, -4]，滿足要求的三元組集合為： [ [-1, 0, 1], [-1, -1, 2] ]</p>
 </li>
 </ul>
 
@@ -939,16 +938,50 @@
       style="color: #ADD6FB"
     ><ul>
 <li>
-<p>暴力法：</p>
+<p>Hashing：O(n^2)</p>
 <ul>
-<li>兩層 for 循環，同時還要記錄字符是否重複出現</li>
-<li>時間複雜度是 O(n^2)</li>
+<li>兩層 for 迴圈就可以確定 兩個數值</li>
+<li>第三個數 <code>0-(a+b)</code> 或 <code>0 - (a + c)</code> 是否在 數組裡出現過</li>
+<li>題目中說的<code>不可以包含重複的三元組</code>。 -&gt; 把符合條件的三元組放進 vector 中，然後再<code>去重</code>，這樣是非常費時的，很容易超時，</li>
+<li>實這題目使用 Hashing 並不十分合適，因為在去重的操作中有很多細節需要注意，在面試中很難直接寫出沒有 bug 的代碼。</li>
 </ul>
 </li>
 <li>
-<p>Hashing：</p>
+<p>Two pointer：O(n^2)</p>
 <ul>
-<li>定一個陣列叫做 record，大小為 26 就可以了，初始化為 0，用來上記錄字串 s 裡字元出現的次數</li>
+<li>
+<p>先將數組排序，然後有一層 for 循環</p>
+<ul>
+<li><code>i 從下標 0</code> 的地方開始</li>
+<li>定一個下標 <code>left 定義在 i+1</code> 的位置上</li>
+<li>定義下標 <code>right 在數組結尾</code>的位置上。</li>
+</ul>
+</li>
+<li>
+<p>還是在陣列中找到 abc 使得 <code>a + b +c =0</code></p>
+<ul>
+<li>相當於 a = nums[i]，b = nums[left]，c = nums[right]。</li>
+</ul>
+</li>
+<li>
+<p>如何移動 left 和 right 呢</p>
+<ul>
+<li>如果 nums[i] + nums[left] + nums[right] &gt; 0 說明
+<ul>
+<li>此時三數總和大了，因為數組是排序後了</li>
+<li>所以 <code>right 下標就應該向左移動</code>，這樣才能讓三數之和小一些。</li>
+</ul>
+</li>
+<li>如果 nums[i] + nums[left] + nums[right] &lt; 0 說明
+<ul>
+<li>此時 三數之和小了，<code>left 就向右移動</code>，才能讓三數總和大一些</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>直到 left 與 right 相遇為止。</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -970,28 +1003,150 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isAnagram</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">record</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 并不需要记住字符a的ASCII，只要求出一个相对数值就可以了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">record</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">record</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// record数组如果有的元素不为零0，说明字符串s和t 一定是谁多了字符或者谁少了字符。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在一个数组中找到3个数形成的三元组，它们的和为0，不能重复使用（三数下标互不相同），且三元组不能重复。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// b（存储）== 0-(a+c)（检索）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">threeSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 如果a是正数，a&lt;b&lt;c，不可能形成和为0的三元组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// [a, a, ...] 如果本轮a和上轮a相同，那么找到的b，c也是相同的，所以去重a
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 这个set的作用是存储b
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">set</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 去重b=c时的b和c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1">// a+b+c=0 &lt;=&gt; b=0-(a+c)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">!=</span> <span class="n">set</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">target</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]});</span>   <span class="c1">// nums[k]成为c
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">set</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">set</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>                            <span class="c1">// nums[k]成为b
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// record数组所有元素都为零0，说明字符串s和t是字母异位词
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n^2)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(n)，额外的 set 开销
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">threeSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 找出a + b + c = 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// a = nums[i], b = nums[left], c = nums[right]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 排序之后如果第一个元素已经大于零，那么无论如何组合都不可能凑成三元组，直接返回结果就可以了
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 错误去重a方法，将会漏掉-1,-1,2 这种情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">            if (nums[i] == nums[i + 1]) {
+</span></span></span><span class="line"><span class="cl"><span class="cm">                continue;
+</span></span></span><span class="line"><span class="cl"><span class="cm">            }
+</span></span></span><span class="line"><span class="cl"><span class="cm">            */</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 正确去重a方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="p">(</span><span class="n">right</span> <span class="o">&gt;</span> <span class="n">left</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 去重复逻辑如果放在这里，0，0，0 的情况，可能直接导致 right&lt;=left 了，从而漏掉了 0,0,0 这种三元组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">                while (right &gt; left &amp;&amp; nums[right] == nums[right - 1]) right--;
+</span></span></span><span class="line"><span class="cl"><span class="cm">                while (right &gt; left &amp;&amp; nums[left] == nums[left + 1]) left++;
+</span></span></span><span class="line"><span class="cl"><span class="cm">                */</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]});</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1">// 去重逻辑应该放在找到一个三元组之后，对b 和 c去重
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">while</span> <span class="p">(</span><span class="n">right</span> <span class="o">&gt;</span> <span class="n">left</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">while</span> <span class="p">(</span><span class="n">right</span> <span class="o">&gt;</span> <span class="n">left</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1">// 找到答案时，双指针同时收缩
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 因為 nums[left] 和 nums[right] 這對數字已經被用過並且記錄成答案，我們必須把視窗向內縮，才能繼續尋找下一組可能的配對，同時避免死迴圈或重複答案。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n^2)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(1)
 </span></span></span></code></pre></div>
+
+<h2 class="relative group">注意 
+    <div id="%E6%B3%A8%E6%84%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E6%84%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #34517A"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #f7f2f2"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #ADD6FB"
+    ><ul>
+<li>兩數和要求回傳的是索引下標，而<code>雙指標法一定要排</code>序，一旦排序之後原數組的索引就被改變了。</li>
+<li><code>兩數和要求回傳的是數值</code>的話，就可以使用<code>雙指標</code>法了。</li>
+</ul>
+</span>
+</div>
+
+
           
           
           
@@ -1010,7 +1165,7 @@
   
   
 
-  <a href="/docs/find-common-characters/" class="min-w-full">
+  <a href="/docs/4sum/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
 
@@ -1018,7 +1173,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/find-common-characters/">Find Common Characters</div>
+          href="/docs/4sum/">4Sum</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1119,10 +1274,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
+    Medium
   </span>
 </span>
   </span>
@@ -1147,7 +1302,7 @@
 
         
         <div class="py-1 prose dark:prose-invert">
-          Find Common Characters
+          4Sum
         </div>
         
       </div>
@@ -1160,7 +1315,7 @@
   
   
 
-  <a href="/docs/happy-number/" class="min-w-full">
+  <a href="/docs/4sum-ii/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
 
@@ -1168,7 +1323,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/happy-number/">Happy Number</div>
+          href="/docs/4sum-ii/">4Sum II</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1209,7 +1364,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
   
 
   
@@ -1269,10 +1424,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
+    Medium
   </span>
 </span>
   </span>
@@ -1297,7 +1452,7 @@
 
         
         <div class="py-1 prose dark:prose-invert">
-          Happy Number
+          4Sum II
         </div>
         
       </div>
@@ -1471,8 +1626,8 @@
           
         
       <script>
-        var oid = "views_docs\/Valid Anagram\/index.md"
-        var oid_likes = "likes_docs\/Valid Anagram\/index.md"
+        var oid = "views_docs\/3Sum\/index.md"
+        var oid_likes = "likes_docs\/3Sum\/index.md"
       </script>
       
       
@@ -1495,40 +1650,18 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/two-sum/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/4sum/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Two Sum</span
+                  >4Sum</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
                     <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/docs/design-linked-list/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Design Linked List</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-07-31T00:00:00&#43;00:00">2025-07-31</time>
                   
                 </span>
               </span>

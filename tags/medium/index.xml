@@ -9,7 +9,37 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>3Sum</title>
+      <link>https://weiz-98.github.io/docs/3sum/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/3sum/</guid>
+      <description>3Sum</description>
+      
+    </item>
+    
+    <item>
+      <title>4Sum</title>
+      <link>https://weiz-98.github.io/docs/4sum/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/4sum/</guid>
+      <description>4Sum</description>
+      
+    </item>
+    
+    <item>
+      <title>4Sum II</title>
+      <link>https://weiz-98.github.io/docs/4sum-ii/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/4sum-ii/</guid>
+      <description>4Sum II</description>
+      
+    </item>
     
     <item>
       <title>Design Linked List</title>

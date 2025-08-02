@@ -12,6 +12,36 @@
     <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>3Sum</title>
+      <link>https://weiz-98.github.io/docs/3sum/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/3sum/</guid>
+      <description>3Sum</description>
+      
+    </item>
+    
+    <item>
+      <title>4Sum</title>
+      <link>https://weiz-98.github.io/docs/4sum/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/4sum/</guid>
+      <description>4Sum</description>
+      
+    </item>
+    
+    <item>
+      <title>4Sum II</title>
+      <link>https://weiz-98.github.io/docs/4sum-ii/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/4sum-ii/</guid>
+      <description>4Sum II</description>
+      
+    </item>
+    
+    <item>
       <title>Find Common Characters</title>
       <link>https://weiz-98.github.io/docs/find-common-characters/</link>
       <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
@@ -38,6 +68,26 @@
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/intersection-of-two-arrays/</guid>
       <description>Intersection of Two Arrays</description>
+      
+    </item>
+    
+    <item>
+      <title>Ransom Note</title>
+      <link>https://weiz-98.github.io/docs/ransom-note/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/ransom-note/</guid>
+      <description>Ransom Note</description>
+      
+    </item>
+    
+    <item>
+      <title>Two Sum</title>
+      <link>https://weiz-98.github.io/docs/two-sum/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/two-sum/</guid>
+      <description>Two Sum</description>
       
     </item>
     

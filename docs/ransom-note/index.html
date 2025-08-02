@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Valid Anagram &middot; WZ Chen</title>
-  <meta name="title" content="Valid Anagram &middot; WZ Chen" />
+  <title>Ransom Note &middot; WZ Chen</title>
+  <meta name="title" content="Ransom Note &middot; WZ Chen" />
   
-  <meta name="description" content="Valid Anagram" />
+  <meta name="description" content="Ransom Note" />
   <meta name="keywords" content="C&#43;&#43;, Easy, Hashing, " />
   
   
-  <link rel="canonical" href="https://weiz-98.github.io/docs/valid-anagram/" />
+  <link rel="canonical" href="https://weiz-98.github.io/docs/ransom-note/" />
   
   
   
@@ -67,10 +67,10 @@
   
   
   
-  <meta property="og:url" content="https://weiz-98.github.io/docs/valid-anagram/">
+  <meta property="og:url" content="https://weiz-98.github.io/docs/ransom-note/">
   <meta property="og:site_name" content="WZ Chen">
-  <meta property="og:title" content="Valid Anagram">
-  <meta property="og:description" content="Valid Anagram">
+  <meta property="og:title" content="Ransom Note">
+  <meta property="og:description" content="Ransom Note">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -82,8 +82,8 @@
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valid Anagram">
-  <meta name="twitter:description" content="Valid Anagram">
+  <meta name="twitter:title" content="Ransom Note">
+  <meta name="twitter:description" content="Ransom Note">
 
   
   <script type="application/ld+json">
@@ -91,12 +91,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "All my post",
-    "name": "Valid Anagram",
-    "headline": "Valid Anagram",
+    "name": "Ransom Note",
+    "headline": "Ransom Note",
     
-    "abstract": "Valid Anagram",
+    "abstract": "Ransom Note",
     "inLanguage": "en",
-    "url" : "https:\/\/weiz-98.github.io\/docs\/valid-anagram\/",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/ransom-note\/",
     "author" : {
       "@type": "Person",
       "name": "WZ Chen"
@@ -110,7 +110,7 @@
     "keywords": ["C++","Easy","Hashing"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "372"
+    "wordCount": "636"
   }]
   </script>
 
@@ -520,8 +520,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/valid-anagram/"
-      >Valid Anagram</a
+      href="/docs/ransom-note/"
+      >Ransom Note</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -530,7 +530,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Valid Anagram
+      Ransom Note
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -573,7 +573,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
   
 
   
@@ -858,12 +858,12 @@
           <p><strong>Leetcode link :</strong>
 <a
   class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-  href="https://leetcode.com/problems/valid-anagram/"
+  href="https://leetcode.com/problems/ransom-note/"
   
   
   role="button"
 >
-  Valid Anagram
+  Ransom Note
 </a>
 </p>
 
@@ -880,16 +880,16 @@
 </h2>
 <ul>
 <li>
-<p>給定兩個字串 s 和 t ，寫一個函數來判斷 t 是否是 s 的字母異位詞。</p>
+<p>給定一個贖金信 (ransom) 字串和一個雜誌 (magazine) 字串，判斷第一個字串 ransom 能不能由第二個字串 magazines 裡面的字構成。如果可以構成，則傳回 true ；否則傳回 false。</p>
 </li>
 <li>
-<p>範例 1: 輸入: s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo; 輸出: true</p>
+<p>(題目說明：為了不暴露贖金信字跡，要從雜誌上搜尋各個需要的字母，組成單字來表達意思。雜誌字串中的每個字元只能在贖金信字串中使用一次。)</p>
 </li>
 <li>
-<p>範例 2: 輸入: s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo; 輸出: false</p>
-</li>
-<li>
-<p>說明: 你可以假設字串只包含小寫字母。</p>
+<p>注意：你可以假設兩個字串均只含有小寫字母。
+canConstruct(&ldquo;a&rdquo;, &ldquo;b&rdquo;) -&gt; false
+canConstruct(&ldquo;aa&rdquo;, &ldquo;ab&rdquo;) -&gt; false
+canConstruct(&ldquo;aa&rdquo;, &ldquo;aab&rdquo;) -&gt; true</p>
 </li>
 </ul>
 
@@ -938,19 +938,9 @@
     
       style="color: #ADD6FB"
     ><ul>
-<li>
-<p>暴力法：</p>
-<ul>
-<li>兩層 for 循環，同時還要記錄字符是否重複出現</li>
-<li>時間複雜度是 O(n^2)</li>
-</ul>
-</li>
-<li>
-<p>Hashing：</p>
-<ul>
-<li>定一個陣列叫做 record，大小為 26 就可以了，初始化為 0，用來上記錄字串 s 裡字元出現的次數</li>
-</ul>
-</li>
+<li>「為了不暴露贖金信字跡，要從雜誌上搜尋各個需要的字母，組成單字來表達意思」</li>
+<li>這裡說明<code>雜誌裡面的字母不可重複使用</code>。</li>
+<li>「你可以假設兩個字串都只含有小寫字母。」 <code>說明只有小寫字母</code></li>
 </ul>
 </span>
 </div>
@@ -970,27 +960,51 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isAnagram</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">record</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 并不需要记住字符a的ASCII，只要求出一个相对数值就可以了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">record</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">record</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// record数组如果有的元素不为零0，说明字符串s和t 一定是谁多了字符或者谁少了字符。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">canConstruct</span><span class="p">(</span><span class="n">string</span> <span class="n">ransomNote</span><span class="p">,</span> <span class="n">string</span> <span class="n">magazine</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">magazine</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ransomNote</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">// 在ransomNote中找到和magazine相同的字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="n">magazine</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ransomNote</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">ransomNote</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">ransomNote</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">j</span><span class="p">);</span> <span class="c1">// ransomNote删除这个字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// record数组所有元素都为零0，说明字符串s和t是字母异位词
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 如果ransomNote为空，则说明magazine的字符可以组成ransomNote
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">ransomNote</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n^2)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(1)
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">canConstruct</span><span class="p">(</span><span class="n">string</span> <span class="n">ransomNote</span><span class="p">,</span> <span class="n">string</span> <span class="n">magazine</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">record</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//add
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">ransomNote</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">magazine</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">magazine</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 通过record数据记录 magazine里各个字符出现次数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">record</span><span class="p">[</span><span class="n">magazine</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">ransomNote</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 遍历ransomNote，在record里对应的字符个数做--操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">record</span><span class="p">[</span><span class="n">ransomNote</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 如果小于零说明ransomNote里出现的字符，magazine没有
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">ransomNote</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(m+n)，其中m表示ransomNote的长度，n表示magazine的长度
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(1)
 </span></span></span></code></pre></div>
           
           
@@ -1471,8 +1485,8 @@
           
         
       <script>
-        var oid = "views_docs\/Valid Anagram\/index.md"
-        var oid_likes = "likes_docs\/Valid Anagram\/index.md"
+        var oid = "views_docs\/Ransom Note\/index.md"
+        var oid_likes = "likes_docs\/Ransom Note\/index.md"
       </script>
       
       
@@ -1495,7 +1509,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/two-sum/">
+            <a class="flex group mr-3" href="/docs/intersection-of-two-arrays/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1507,7 +1521,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Two Sum</span
+                  >Intersection of Two Arrays</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1520,15 +1534,15 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/design-linked-list/">
+            <a class="flex text-right group ml-3" href="/docs/two-sum/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Design Linked List</span
+                  >Two Sum</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-07-31T00:00:00&#43;00:00">2025-07-31</time>
+                    <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time>
                   
                 </span>
               </span>
