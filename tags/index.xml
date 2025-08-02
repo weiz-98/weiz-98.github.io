@@ -9,12 +9,12 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>C&#43;&#43;</title>
       <link>https://weiz-98.github.io/tags/c&#43;&#43;/</link>
-      <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/tags/c&#43;&#43;/</guid>
       <description></description>
@@ -24,9 +24,19 @@
     <item>
       <title>Easy</title>
       <link>https://weiz-98.github.io/tags/easy/</link>
-      <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/tags/easy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hashing</title>
+      <link>https://weiz-98.github.io/tags/hashing/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/hashing/</guid>
       <description></description>
       
     </item>

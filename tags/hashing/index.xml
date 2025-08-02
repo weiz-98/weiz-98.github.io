@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on WZ Chen</title>
-    <link>https://weiz-98.github.io/categories/</link>
-    <description>Recent content in Categories on WZ Chen</description>
+    <title>Hashing on WZ Chen</title>
+    <link>https://weiz-98.github.io/tags/hashing/</link>
+    <description>Recent content in Hashing on WZ Chen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/hashing/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Leetcode</title>
-      <link>https://weiz-98.github.io/categories/leetcode/</link>
+      <title>Valid Anagram</title>
+      <link>https://weiz-98.github.io/docs/valid-anagram/</link>
       <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
-      <guid>https://weiz-98.github.io/categories/leetcode/</guid>
-      <description></description>
+      <guid>https://weiz-98.github.io/docs/valid-anagram/</guid>
+      <description>Valid Anagram</description>
       
     </item>
     
