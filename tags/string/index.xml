@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>String on WZ Chen</title>
+    <link>https://weiz-98.github.io/tags/string/</link>
+    <description>Recent content in String on WZ Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
+    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
+    <copyright>© 2025 WZ Chen</copyright>
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Repeated Substring Pattern</title>
+      <link>https://weiz-98.github.io/docs/repeated-substring-pattern/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/repeated-substring-pattern/</guid>
+      <description>Repeated Substring Pattern</description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse String</title>
+      <link>https://weiz-98.github.io/docs/reverse-string/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/reverse-string/</guid>
+      <description>Reverse String</description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse String II</title>
+      <link>https://weiz-98.github.io/docs/reverse-string-ii/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/reverse-string-ii/</guid>
+      <description>Reverse String II</description>
+      
+    </item>
+    
+    <item>
+      <title>Reverse Words in a String</title>
+      <link>https://weiz-98.github.io/docs/reverse-words-in-a-string/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/reverse-words-in-a-string/</guid>
+      <description>Reverse Words in a String</description>
+      
+    </item>
+    
+  </channel>
+</rss>
