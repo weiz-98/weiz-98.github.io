@@ -110,7 +110,7 @@
     "keywords": ["C++","Easy","String"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "644"
+    "wordCount": "916"
   }]
   </script>
 
@@ -758,6 +758,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -774,6 +775,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -961,7 +963,7 @@
 </li>
 <li>使用 KMP
 <ul>
-<li>getNext 如何計算 最長公共前後綴長度</li>
+<li>getNext 計算 最長公共前後綴長度</li>
 </ul>
 </li>
 </ol>
@@ -1011,17 +1013,17 @@
 </span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">getNext</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">next</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">){</span>
-</span></span><span class="line"><span class="cl">        <span class="n">next</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="n">next</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 第 0 個字元的 LPS 永遠是 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// j = 目前可延續的最長匹配長度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
 </span></span><span class="line"><span class="cl">            <span class="k">while</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span> <span class="c1">// 失配：退回上一個可用的 LPS
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="c1">// 成功配對，匹配長度 +1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>  <span class="c1">// 記錄 i 位置對應的 LPS
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">repeatedSubstringPattern</span> <span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -1039,6 +1041,98 @@
 </span></span><span class="line"><span class="cl"><span class="c1">// 時間複雜度為 O(n)
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 空間複雜度 O(n)
 </span></span></span></code></pre></div>
+
+<h2 class="relative group">注意 
+    <div id="%E6%B3%A8%E6%84%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E6%84%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #34517A"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #f7f2f2"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #ADD6FB"
+    ><ol>
+<li>
+<p>若字串由子字串 p 重複組成</p>
+<ul>
+<li>
+<p>設 |p| = k，重複 m 次 (len = k·m)。</p>
+</li>
+<li>
+<p>整條字串的<code>最長公共前後綴就是 p 重複 m-1 次</code> → <code>長度 len - k。</code></p>
+</li>
+<li>
+<p>因此 lps = len - k，且 <code>k = len - lps</code>。</p>
+</li>
+<li>
+<p>此時 len % k == 0 成立。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>若條件成立，必有重複子字串</p>
+<ul>
+<li>
+<p>lps &gt; 0 ⇒ 至少有一段前綴同時也是後綴。</p>
+</li>
+<li>
+<p>k = len - lps 為可能的週期長度。</p>
+</li>
+<li>
+<p>若 len % k == 0，把長度 k 的子字串複製 m = len/k 次即可拼回原字串。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>反例不可能通過測試</p>
+<ul>
+<li>
+<p>若字串並非週期字串，lps 只能小於真正週期長度或為 0。</p>
+</li>
+<li>
+<p>即使 lps &gt; 0，len % (len-lps) 也必定不等於 0。</p>
+</li>
+</ul>
+</li>
+</ol>
+</span>
+</div>
+
+
           
           
           
