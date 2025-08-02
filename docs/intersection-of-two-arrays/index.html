@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Valid Anagram &middot; WZ Chen</title>
-  <meta name="title" content="Valid Anagram &middot; WZ Chen" />
+  <title>Intersection of Two Arrays &middot; WZ Chen</title>
+  <meta name="title" content="Intersection of Two Arrays &middot; WZ Chen" />
   
-  <meta name="description" content="Valid Anagram" />
+  <meta name="description" content="Intersection of Two Arrays" />
   <meta name="keywords" content="C&#43;&#43;, Easy, Hashing, " />
   
   
-  <link rel="canonical" href="https://weiz-98.github.io/docs/valid-anagram/" />
+  <link rel="canonical" href="https://weiz-98.github.io/docs/intersection-of-two-arrays/" />
   
   
   
@@ -67,10 +67,10 @@
   
   
   
-  <meta property="og:url" content="https://weiz-98.github.io/docs/valid-anagram/">
+  <meta property="og:url" content="https://weiz-98.github.io/docs/intersection-of-two-arrays/">
   <meta property="og:site_name" content="WZ Chen">
-  <meta property="og:title" content="Valid Anagram">
-  <meta property="og:description" content="Valid Anagram">
+  <meta property="og:title" content="Intersection of Two Arrays">
+  <meta property="og:description" content="Intersection of Two Arrays">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
@@ -82,8 +82,8 @@
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Valid Anagram">
-  <meta name="twitter:description" content="Valid Anagram">
+  <meta name="twitter:title" content="Intersection of Two Arrays">
+  <meta name="twitter:description" content="Intersection of Two Arrays">
 
   
   <script type="application/ld+json">
@@ -91,12 +91,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "All my post",
-    "name": "Valid Anagram",
-    "headline": "Valid Anagram",
+    "name": "Intersection of Two Arrays",
+    "headline": "Intersection of Two Arrays",
     
-    "abstract": "Valid Anagram",
+    "abstract": "Intersection of Two Arrays",
     "inLanguage": "en",
-    "url" : "https:\/\/weiz-98.github.io\/docs\/valid-anagram\/",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/intersection-of-two-arrays\/",
     "author" : {
       "@type": "Person",
       "name": "WZ Chen"
@@ -110,7 +110,7 @@
     "keywords": ["C++","Easy","Hashing"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "372"
+    "wordCount": "500"
   }]
   </script>
 
@@ -520,8 +520,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/valid-anagram/"
-      >Valid Anagram</a
+      href="/docs/intersection-of-two-arrays/"
+      >Intersection of Two Arrays</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -530,7 +530,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Valid Anagram
+      Intersection of Two Arrays
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -758,6 +758,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -774,6 +775,7 @@
     <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
     <li><a href="#解法">解法</a></li>
+    <li><a href="#注意">注意</a></li>
   </ul>
 </nav>
   </div>
@@ -858,12 +860,12 @@
           <p><strong>Leetcode link :</strong>
 <a
   class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-  href="https://leetcode.com/problems/valid-anagram/"
+  href="https://leetcode.com/problems/intersection-of-two-arrays/"
   
   
   role="button"
 >
-  Valid Anagram
+  Intersection of Two Arrays
 </a>
 </p>
 
@@ -878,20 +880,22 @@
     </span>        
     
 </h2>
-<ul>
-<li>
-<p>給定兩個字串 s 和 t ，寫一個函數來判斷 t 是否是 s 的字母異位詞。</p>
-</li>
-<li>
-<p>範例 1: 輸入: s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo; 輸出: true</p>
-</li>
-<li>
-<p>範例 2: 輸入: s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo; 輸出: false</p>
-</li>
-<li>
-<p>說明: 你可以假設字串只包含小寫字母。</p>
-</li>
-</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/intersection-of-two-arrays/image_hu_c0b94cd432db1812.png 330w,
+        /docs/intersection-of-two-arrays/image_hu_7510a42e09690c17.png 660w,
+        /docs/intersection-of-two-arrays/image_hu_19e0ea886b810ff9.png 1024w,
+        /docs/intersection-of-two-arrays/image_hu_68394b896a9990aa.png 2x"
+        src="/docs/intersection-of-two-arrays/image_hu_7510a42e09690c17.png"
+        alt="alt text"
+      />
+      
+    </figure>
+</p>
 
 
 <h2 class="relative group">思路 
@@ -941,14 +945,32 @@
 <li>
 <p>暴力法：</p>
 <ul>
-<li>兩層 for 循環，同時還要記錄字符是否重複出現</li>
 <li>時間複雜度是 O(n^2)</li>
 </ul>
 </li>
 <li>
 <p>Hashing：</p>
 <ul>
-<li>定一個陣列叫做 record，大小為 26 就可以了，初始化為 0，用來上記錄字串 s 裡字元出現的次數</li>
+<li>
+<p>題目刻意說明：輸出結果中的<code>每個元素一定是唯一的</code>，也就是說輸出的結果的去重的， 同時可以<code>不考慮輸出結果的順序</code> -&gt; <code>unordered_set</code></p>
+</li>
+<li>
+<p>而這題目<code>沒有限制數值的大小</code> -&gt; <code>無法使用陣列</code>來做哈希表</p>
+<ul>
+<li>哈希值比較少、特別分散、跨度非常大，<code>使用數組就會造成空間的極大浪費</code> -&gt; 使用另一種結構體 <code>set</code></li>
+<li>set 有三種資料結構
+<ol>
+<li>std::set -&gt; 底層為紅黑樹</li>
+<li>std::multiset -&gt; 底層為紅黑樹</li>
+<li>std::unordered_set -&gt; 底層為 hash table -&gt;</li>
+</ol>
+<ul>
+<li>使用 unordered_set 讀寫效率最高，<code>不需對資料進行排序</code>，也<code>不要讓資料重複</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -970,28 +992,116 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isAnagram</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">record</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 并不需要记住字符a的ASCII，只要求出一个相对数值就可以了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">record</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="n">record</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// record数组如果有的元素不为零0，说明字符串s和t 一定是谁多了字符或者谁少了字符。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">intersection</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result_set</span><span class="p">;</span> <span class="c1">// 存放结果，之所以用set是为了给结果集去重
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums_set</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">num</span> <span class="p">:</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 发现nums2的元素 在nums_set里又出现过
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="n">nums_set</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nums_set</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">result_set</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// record数组所有元素都为零0，说明字符串s和t是字母异位词
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">result_set</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">result_set</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度：O(n)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度：O(1)
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n + m) nums1 = n, nums2 = m
+</span></span></span><span class="line"><span class="cl"><span class="c1">// k 是最后要把 set 转成 vector 但因為長度必定小於 m or n 因此最終為 O(n + m)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(n + k) nums_set = n, result_set = k
 </span></span></span></code></pre></div>
+
+<h2 class="relative group">注意 
+    <div id="%E6%B3%A8%E6%84%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E6%84%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #34517A"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #f7f2f2"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #ADD6FB"
+    ><ul>
+<li>遇到哈希問題我直接都用 set 不就得了，用什麼數組啊？</li>
+<li>直接使用 <code>set 不僅佔空間比陣列大</code>，而且<code>速度要比陣列慢</code></li>
+<li>set 把數值映射到 key 上都要做 hash 計算的。</li>
+<li>不要小瞧 這個耗時，在數據量大的情況，差距是很明顯的。</li>
+</ul>
+</span>
+</div>
+
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md"
+    style="background-color: #7E9F54"
+  >
+
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center"
+      style="color: #f7f2f2"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #f7f2f2"
+    ><ul>
+<li>當題目有限制較小的數值範圍時，例如：1 &lt;= nums1.length, nums2.length &lt;= 1000</li>
+<li>就可以把 array 作為 hash，若範圍過大則採用 unordered_set</li>
+</ul>
+</span>
+</div>
+
+
           
           
           
@@ -1160,7 +1270,7 @@
   
   
 
-  <a href="/docs/intersection-of-two-arrays/" class="min-w-full">
+  <a href="/docs/valid-anagram/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
 
@@ -1168,7 +1278,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/intersection-of-two-arrays/">Intersection of Two Arrays</div>
+          href="/docs/valid-anagram/">Valid Anagram</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1297,7 +1407,7 @@
 
         
         <div class="py-1 prose dark:prose-invert">
-          Intersection of Two Arrays
+          Valid Anagram
         </div>
         
       </div>
@@ -1310,7 +1420,7 @@
   
   
 
-  <a href="/docs/remove-linked-list-elements/" class="min-w-full">
+  <a href="/docs/binary-search/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
 
@@ -1318,7 +1428,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/remove-linked-list-elements/">Remove Linked List Elements</div>
+          href="/docs/binary-search/">Binary Search</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1359,7 +1469,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-07-31T00:00:00&#43;00:00">2025-07-31</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-05-03T00:00:00&#43;00:00">2025-05-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -1427,10 +1537,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linkedlist/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/array/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LinkedList
+    Array
   </span>
 </span>
   </span>
@@ -1447,7 +1557,7 @@
 
         
         <div class="py-1 prose dark:prose-invert">
-          Remove Linked List Elements
+          Binary Search
         </div>
         
       </div>
@@ -1471,8 +1581,8 @@
           
         
       <script>
-        var oid = "views_docs\/Valid Anagram\/index.md"
-        var oid_likes = "likes_docs\/Valid Anagram\/index.md"
+        var oid = "views_docs\/Intersection of Two Arrays\/index.md"
+        var oid_likes = "likes_docs\/Intersection of Two Arrays\/index.md"
       </script>
       
       
@@ -1495,7 +1605,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/intersection-of-two-arrays/">
+            <a class="flex group mr-3" href="/docs/find-common-characters/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1507,7 +1617,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Intersection of Two Arrays</span
+                  >Find Common Characters</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1520,15 +1630,15 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/design-linked-list/">
+            <a class="flex text-right group ml-3" href="/docs/valid-anagram/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Design Linked List</span
+                  >Valid Anagram</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-07-31T00:00:00&#43;00:00">2025-07-31</time>
+                    <time datetime="2025-08-02T00:00:00&#43;00:00">2025-08-02</time>
                   
                 </span>
               </span>
