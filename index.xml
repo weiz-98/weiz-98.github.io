@@ -9,7 +9,27 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Sun, 03 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Balanced Binary Tree</title>
+      <link>https://weiz-98.github.io/docs/balanced-binary-tree/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/balanced-binary-tree/</guid>
+      <description>Balanced Binary Tree</description>
+      
+    </item>
+    
+    <item>
+      <title>Invert Binary Tree</title>
+      <link>https://weiz-98.github.io/docs/invert-binary-tree/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/invert-binary-tree/</guid>
+      <description>Invert Binary Tree</description>
+      
+    </item>
     
     <item>
       <title>Binary Tree Inorder Traversal</title>

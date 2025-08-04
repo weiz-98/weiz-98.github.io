@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Binary Tree Level Order Traversal &middot; WZ Chen</title>
-  <meta name="title" content="Binary Tree Level Order Traversal &middot; WZ Chen" />
+  <title>Balanced Binary Tree &middot; WZ Chen</title>
+  <meta name="title" content="Balanced Binary Tree &middot; WZ Chen" />
   
-  <meta name="description" content="Binary Tree Level Order Traversal" />
+  <meta name="description" content="Balanced Binary Tree" />
   <meta name="keywords" content="C&#43;&#43;, Easy, Tree, " />
   
   
-  <link rel="canonical" href="https://weiz-98.github.io/docs/binary-tree-level-order-traversal/" />
+  <link rel="canonical" href="https://weiz-98.github.io/docs/balanced-binary-tree/" />
   
   
   
@@ -67,23 +67,23 @@
   
   
   
-  <meta property="og:url" content="https://weiz-98.github.io/docs/binary-tree-level-order-traversal/">
+  <meta property="og:url" content="https://weiz-98.github.io/docs/balanced-binary-tree/">
   <meta property="og:site_name" content="WZ Chen">
-  <meta property="og:title" content="Binary Tree Level Order Traversal">
-  <meta property="og:description" content="Binary Tree Level Order Traversal">
+  <meta property="og:title" content="Balanced Binary Tree">
+  <meta property="og:description" content="Balanced Binary Tree">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-08-03T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-08-03T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-08-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-04T00:00:00+00:00">
     <meta property="article:tag" content="C&#43;&#43;">
     <meta property="article:tag" content="Easy">
     <meta property="article:tag" content="Tree">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Binary Tree Level Order Traversal">
-  <meta name="twitter:description" content="Binary Tree Level Order Traversal">
+  <meta name="twitter:title" content="Balanced Binary Tree">
+  <meta name="twitter:description" content="Balanced Binary Tree">
 
   
   <script type="application/ld+json">
@@ -91,26 +91,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "All my post",
-    "name": "Binary Tree Level Order Traversal",
-    "headline": "Binary Tree Level Order Traversal",
+    "name": "Balanced Binary Tree",
+    "headline": "Balanced Binary Tree",
     
-    "abstract": "Binary Tree Level Order Traversal",
+    "abstract": "Balanced Binary Tree",
     "inLanguage": "en",
-    "url" : "https:\/\/weiz-98.github.io\/docs\/binary-tree-level-order-traversal\/",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/balanced-binary-tree\/",
     "author" : {
       "@type": "Person",
       "name": "WZ Chen"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-08-03T00:00:00\u002b00:00",
-    "datePublished": "2025-08-03T00:00:00\u002b00:00",
+    "dateCreated": "2025-08-04T00:00:00\u002b00:00",
+    "datePublished": "2025-08-04T00:00:00\u002b00:00",
     
-    "dateModified": "2025-08-03T00:00:00\u002b00:00",
+    "dateModified": "2025-08-04T00:00:00\u002b00:00",
     
     "keywords": ["C++","Easy","Tree"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "321"
+    "wordCount": "1191"
   }]
   </script>
 
@@ -520,8 +520,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/binary-tree-level-order-traversal/"
-      >Binary Tree Level Order Traversal</a
+      href="/docs/balanced-binary-tree/"
+      >Balanced Binary Tree</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -530,7 +530,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Binary Tree Level Order Traversal
+      Balanced Binary Tree
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -573,7 +573,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2025-08-04T00:00:00&#43;00:00">2025-08-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -755,9 +755,14 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
+    <li><a href="#解法">解法</a>
+      <ul>
+        <li><a href="#post-order-recursive">post order recursive</a></li>
+        <li><a href="#post-order-iterative-with-queue">post order iterative with queue</a></li>
+        <li><a href="#post-order-iterative-with-stack">post order iterative with stack</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -771,9 +776,14 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#描述">描述</a></li>
     <li><a href="#思路">思路</a></li>
-    <li><a href="#解法">解法</a></li>
+    <li><a href="#解法">解法</a>
+      <ul>
+        <li><a href="#post-order-recursive">post order recursive</a></li>
+        <li><a href="#post-order-iterative-with-queue">post order iterative with queue</a></li>
+        <li><a href="#post-order-iterative-with-stack">post order iterative with stack</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -858,41 +868,13 @@
           <p><strong>Leetcode link :</strong>
 <a
   class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
-  href="https://leetcode.com/problems/binary-tree-level-order-traversal/"
+  href="https://leetcode.com/problems/balanced-binary-tree/"
   
   
   role="button"
 >
-  Binary Tree Level Order Traversal
+  Balanced Binary Tree
 </a>
-</p>
-
-
-<h2 class="relative group">描述 
-    <div id="%E6%8F%8F%E8%BF%B0" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%8F%8F%E8%BF%B0" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /docs/binary-tree-level-order-traversal/image_hu_3b30e33827f05f61.png 330w,
-        /docs/binary-tree-level-order-traversal/image_hu_e4d87851eb874a57.png 660w,
-        /docs/binary-tree-level-order-traversal/image_hu_d33a4e5a05283f46.png 1024w,
-        /docs/binary-tree-level-order-traversal/image_hu_752fc6e091d552f4.png 2x"
-        src="/docs/binary-tree-level-order-traversal/image_hu_e4d87851eb874a57.png"
-        alt="alt text"
-      />
-      
-    </figure>
 </p>
 
 
@@ -940,9 +922,73 @@
     
       style="color: #ADD6FB"
     ><ul>
-<li>佇列來實現，佇列先進先出，符合一層一層遍歷的邏輯</li>
-<li>而用棧先進後出適合模擬深度優先遍歷也就是遞歸的邏輯。</li>
-<li>層序遍歷方式就是圖論中的廣度優先遍歷，只不過我們應用在二元樹上。</li>
+<li>
+<p>判斷對稱二元樹要比較的是哪兩個節點，要比較的<code>不是左右節點</code>！</p>
+</li>
+<li>
+<p>對於二元樹是否對稱，要<code>比較的是根節點的左子樹與右子樹是不是相互翻轉的</code></p>
+</li>
+<li>
+<p>在遞歸遍歷的過程中，也是要<code>同時遍兩棵樹</code></p>
+</li>
+<li>
+<p>只能是 <code>後序遍歷</code>，因為我們要透過<code>遞歸函數的返回值</code>來判斷<code>兩個子樹的內側節點和外側節點是否相等</code></p>
+</li>
+<li>
+<p>要比較內側和外側節點 -&gt; 遍歷順序是<code>左右中</code></p>
+</li>
+<li>
+<p><strong>遞迴法</strong></p>
+<ol>
+<li><strong>確定遞歸函數的參數和返回值</strong></li>
+</ol>
+<ul>
+<li>要比較的是根節點的兩個子樹<code>是否是互相翻轉的</code> -&gt; 所以要比較的是<code>兩個樹</code> -&gt; 參數自然也是<code>左子樹節點和右子樹節點</code>。</li>
+<li>傳回值自然是 bool 型別。</li>
+</ul>
+<ol start="2">
+<li><strong>確定終止條件</strong></li>
+</ol>
+<ul>
+<li>
+<p>要把兩個節點為空的情況弄清楚！否則後面比較數值的時候就會操作空指標了</p>
+</li>
+<li>
+<p><strong>節點為空的情況有</strong>：</p>
+<ol>
+<li>左節點為空，右節點不為空，不對稱，return false</li>
+<li>左不為空，右為空，不對稱 return false</li>
+<li>左右都為空，對稱，回傳 true</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li><strong>確定單層遞歸的邏輯</strong></li>
+</ol>
+<ul>
+<li>處理 <code>左右節點都不為空，且數值相同的情況</code>。</li>
+<li>比較二元樹外側是否對稱：傳入的是左節點的左孩子，右節點的右孩子。</li>
+<li><code>比較內側是否對稱</code> -&gt; 傳入<code>左節點的右孩子</code>，<code>右節點的左孩子</code>。</li>
+<li>如果左右都對稱就回傳 true ，有一側不對稱就回傳 false 。</li>
+</ul>
+</li>
+<li>
+<p><strong>迭代法</strong></p>
+</li>
+<li>
+<p>不是前中後序的迭代寫法，因為本題的<code>本質是判斷兩個樹是否是相互翻轉</code>的，其實已經不是所謂二元樹遍歷的前中後序的關係了。</p>
+</li>
+<li>
+<p>比較<code>兩個樹（根節點的左右子樹）</code>是否要互相翻轉，（注意這不是層序遍歷）</p>
+<ol>
+<li>使用 queue</li>
+<li>使用 stack</li>
+</ol>
+<ul>
+<li>其實是把左右兩個子樹要比較的元素順序放進一個容器，然後成對成對的取出來進行比較，那麼其實使用 stack 也是可以的。</li>
+<li>只要把 queue 原封不動的改成 stack 就可以了</li>
+</ul>
+</li>
 </ul>
 </span>
 </div>
@@ -959,49 +1005,122 @@
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">post order recursive 
+    <div id="post-order-recursive" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#post-order-recursive" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">que</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">            <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// 这里一定要使用固定大小size，不要使用que.size()，因为que.size是不断变化的
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                <span class="n">TreeNode</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">                <span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">compare</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 首先排除空节点的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 排除了空节点，再排除数值不相同的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 此时就是：左右节点都不为空，且数值相同的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 此时才做递归，做下一层的判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">bool</span> <span class="n">outside</span> <span class="o">=</span> <span class="n">compare</span><span class="p">(</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>   <span class="c1">// 左子树：左、 右子树：右
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">bool</span> <span class="n">inside</span> <span class="o">=</span> <span class="n">compare</span><span class="p">(</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">right</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>    <span class="c1">// 左子树：右、 右子树：左
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">bool</span> <span class="n">isSame</span> <span class="o">=</span> <span class="n">outside</span> <span class="o">&amp;&amp;</span> <span class="n">inside</span><span class="p">;</span>                    <span class="c1">// 左子树：中、 右子树：中 （逻辑处理）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="n">isSame</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">isSymmetric</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n) 節點僅 入隊一次、出隊一次
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(n) 佇列最壞 O(n) 平均取決於樹的最大寬度
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n) 樹共有 n 個節點
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(logn) 為樹高 h
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">post order iterative with queue 
+    <div id="post-order-iterative-with-queue" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#post-order-iterative-with-queue" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">order</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">cur</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">result</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cur</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">depth</span><span class="p">)</span> <span class="n">result</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
-</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">[</span><span class="n">depth</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">order</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">order</span><span class="p">(</span><span class="n">cur</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">levelOrder</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">order</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isSymmetric</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">que</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>   <span class="c1">// 将左子树头结点加入队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>  <span class="c1">// 将右子树头结点加入队列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">que</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>  <span class="c1">// 接下来就要判断这两个树是否相互翻转
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">TreeNode</span><span class="o">*</span> <span class="n">leftNode</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TreeNode</span><span class="o">*</span> <span class="n">rightNode</span> <span class="o">=</span> <span class="n">que</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="n">que</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">leftNode</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">rightNode</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 左节点为空、右节点为空，此时说明是对称的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// 左右一个节点不为空，或者都不为空但数值不相同，返回false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">((</span><span class="o">!</span><span class="n">leftNode</span> <span class="o">||</span> <span class="o">!</span><span class="n">rightNode</span> <span class="o">||</span> <span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>   <span class="c1">// 加入左节点左孩子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span> <span class="c1">// 加入右节点右孩子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>  <span class="c1">// 加入左节点右孩子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">que</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>  <span class="c1">// 加入右节点左孩子
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(logn) ：介於 O(logn) 與 O(n) 之間
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(w) ： w 為最大寬度  介於 O(1) 與 O(n) (完全二元最底層約有 n/2 個節點)之間
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">post order iterative with stack 
+    <div id="post-order-iterative-with-stack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#post-order-iterative-with-stack" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Cpp" data-lang="Cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">isSymmetric</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">stack</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">st</span><span class="p">;</span> <span class="c1">// 这里改成了栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">st</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TreeNode</span><span class="o">*</span> <span class="n">rightNode</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">TreeNode</span><span class="o">*</span> <span class="n">leftNode</span> <span class="o">=</span> <span class="n">st</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">st</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">leftNode</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">rightNode</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">((</span><span class="o">!</span><span class="n">leftNode</span> <span class="o">||</span> <span class="o">!</span><span class="n">rightNode</span> <span class="o">||</span> <span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">val</span> <span class="o">!=</span> <span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">leftNode</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">st</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">rightNode</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 时间复杂度： O(n)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 空间复杂度： O(logn) ：最佳／平均（平衡樹: O(logn) 最壞（嚴重偏斜樹）:O(n)
 </span></span></span></code></pre></div>
           
           
@@ -1018,6 +1137,306 @@
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/invert-binary-tree/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/invert-binary-tree/">Invert Binary Tree</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-08-04T00:00:00&#43;00:00">2025-08-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/leetcode/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Leetcode
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/c&#43;&#43;/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    C&#43;&#43;
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/tree/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Tree
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Invert Binary Tree
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/binary-tree-level-order-traversal/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/binary-tree-level-order-traversal/">Binary Tree Level Order Traversal</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/leetcode/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Leetcode
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/c&#43;&#43;/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    C&#43;&#43;
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/tree/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Tree
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Binary Tree Level Order Traversal
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
   
   
 
@@ -1169,306 +1588,6 @@
   </a>
 
   
-  
-
-  <a href="/docs/binary-tree-inorder-traversal/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/binary-tree-inorder-traversal/">Binary Tree Inorder Traversal</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/leetcode/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Leetcode
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/c&#43;&#43;/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    C&#43;&#43;
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/tree/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Tree
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          Binary Tree Inorder Traversal
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/binary-tree-postorder-traversal/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/binary-tree-postorder-traversal/">Binary Tree Postorder Traversal</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/leetcode/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Leetcode
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/c&#43;&#43;/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    C&#43;&#43;
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/tree/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Tree
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          Binary Tree Postorder Traversal
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -1482,8 +1601,8 @@
           
         
       <script>
-        var oid = "views_docs\/Binary Tree Level Order Traversal\/index.md"
-        var oid_likes = "likes_docs\/Binary Tree Level Order Traversal\/index.md"
+        var oid = "views_docs\/Balanced Binary Tree\/index.md"
+        var oid_likes = "likes_docs\/Balanced Binary Tree\/index.md"
       </script>
       
       
@@ -1506,40 +1625,18 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/binary-tree-inorder-traversal/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Binary Tree Inorder Traversal</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time>
-                  
-                </span>
-              </span>
-            </a>
-          
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/binary-tree-postorder-traversal/">
+            <a class="flex text-right group ml-3" href="/docs/invert-binary-tree/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Binary Tree Postorder Traversal</span
+                  >Invert Binary Tree</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-08-03T00:00:00&#43;00:00">2025-08-03</time>
+                    <time datetime="2025-08-04T00:00:00&#43;00:00">2025-08-04</time>
                   
                 </span>
               </span>
