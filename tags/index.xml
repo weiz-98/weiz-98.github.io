@@ -9,7 +9,247 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Abstract Factory</title>
+      <link>https://weiz-98.github.io/tags/abstract-factory/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/abstract-factory/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Adapter</title>
+      <link>https://weiz-98.github.io/tags/adapter/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/adapter/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Bridge</title>
+      <link>https://weiz-98.github.io/tags/bridge/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/bridge/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Builder</title>
+      <link>https://weiz-98.github.io/tags/builder/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/builder/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Chain of Responsibility</title>
+      <link>https://weiz-98.github.io/tags/chain-of-responsibility/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/chain-of-responsibility/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Command</title>
+      <link>https://weiz-98.github.io/tags/command/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/command/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Composite</title>
+      <link>https://weiz-98.github.io/tags/composite/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/composite/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Decorator</title>
+      <link>https://weiz-98.github.io/tags/decorator/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/decorator/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Facade</title>
+      <link>https://weiz-98.github.io/tags/facade/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/facade/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Factory Method</title>
+      <link>https://weiz-98.github.io/tags/factory-method/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/factory-method/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Flyweight</title>
+      <link>https://weiz-98.github.io/tags/flyweight/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/flyweight/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://weiz-98.github.io/tags/go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/go/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Interpreter</title>
+      <link>https://weiz-98.github.io/tags/interpreter/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/interpreter/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Iterator</title>
+      <link>https://weiz-98.github.io/tags/iterator/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/iterator/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Mediator</title>
+      <link>https://weiz-98.github.io/tags/mediator/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/mediator/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Memento</title>
+      <link>https://weiz-98.github.io/tags/memento/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/memento/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Observer</title>
+      <link>https://weiz-98.github.io/tags/observer/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/observer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Prototype</title>
+      <link>https://weiz-98.github.io/tags/prototype/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/prototype/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Proxy</title>
+      <link>https://weiz-98.github.io/tags/proxy/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/proxy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Singleton</title>
+      <link>https://weiz-98.github.io/tags/singleton/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/singleton/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>State</title>
+      <link>https://weiz-98.github.io/tags/state/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/state/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Strategy</title>
+      <link>https://weiz-98.github.io/tags/strategy/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/strategy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Template Method</title>
+      <link>https://weiz-98.github.io/tags/template-method/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/template-method/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Visitor</title>
+      <link>https://weiz-98.github.io/tags/visitor/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/tags/visitor/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>C&#43;&#43;</title>

@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="twn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Builder with Go &middot; WZ Chen</title>
+  <meta name="title" content="Builder with Go &middot; WZ Chen" />
+  
+  <meta name="description" content="Builder with Go" />
+  <meta name="keywords" content="Go, Builder, " />
+  
+  
+  <link rel="canonical" href="https://weiz-98.github.io/docs/builder-with-go/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.f88bdf262f6df8418ce7e23e3c2483bca8a1e86d51d7528a9c62be5681e9dc1b693a7c25bcf112b5242d2f72e5e44902ff17dda3ca098b4e15898622c6a9e87b.js"
+    integrity="sha512-&#43;IvfJi9t&#43;EGM5&#43;I&#43;PCSDvKih6G1R11KKnGK&#43;VoHp3BtpOnwlvPEStSQtL3Ll5EkC/xfdo8oJi04ViYYixqnoew==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://weiz-98.github.io/docs/builder-with-go/">
+  <meta property="og:site_name" content="WZ Chen">
+  <meta property="og:title" content="Builder with Go">
+  <meta property="og:description" content="Builder with Go">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="Builder">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Builder with Go">
+  <meta name="twitter:description" content="Builder with Go">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "All my post",
+    "name": "Builder with Go",
+    "headline": "Builder with Go",
+    
+    "abstract": "Builder with Go",
+    "inLanguage": "en",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/builder-with-go\/",
+    "author" : {
+      "@type": "Person",
+      "name": "WZ Chen"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-04T00:00:00\u002b00:00",
+    "datePublished": "2025-09-04T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-09-04T00:00:00\u002b00:00",
+    
+    "keywords": ["Go","Builder"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2652"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="WZ Chen" />
+  
+  
+  
+  <link href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" rel="me" />
+  
+  
+  <link href="https://github.com/weiz-98" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W091VSDB08"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W091VSDB08');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">WZ Chen</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="All my post">
+        Blog
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Categories">
+        Categories
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About Me">
+        About
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="All my post">
+            Blog
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Categories">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About Me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      ></a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >All my post</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/builder-with-go/"
+      >Builder with Go</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Builder with Go
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/builder/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Builder
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+        
+            
+          
+          
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/seal_hu_62f4ddec727f91f4.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <a  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      WZ Chen
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">菜鳥 coder</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" target="_blank"
+          aria-label="Linkedin" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://github.com/weiz-98" target="_blank"
+          aria-label="Github" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>下面用 <strong>Builder（建造者模式）</strong> 在 Golang 做一份「觀念 → 結構 → Go 風格實作 → 易錯點/最佳實務」的完整說明，附上可直接複製的程式範例（含：經典 Director 版、慣用 Fluent Builder、Functional Options 對照、校驗與不可變設計、以及進階：複製/重用 Builder）。</p>
+<hr>
+
+
+<h1 class="relative group">Builder 是什麼？何時用？ 
+    <div id="builder-%E6%98%AF%E4%BB%80%E9%BA%BC%E4%BD%95%E6%99%82%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#builder-%E6%98%AF%E4%BB%80%E9%BA%BC%E4%BD%95%E6%99%82%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>定義（GoF）</strong>
+將一個<strong>複雜物件</strong>的建構過程<strong>分步驟</strong>封裝起來，讓同樣的建構流程可以產出<strong>不同的表示</strong>（或不同配置），並能避免「望文生義的大型建構子（tele­scoping constructor）」與錯綜可選參數的混亂。</p>
+<p><strong>什麼情境適合：</strong></p>
+<ul>
+<li>物件欄位<strong>很多</strong>、<strong>部分必填</strong>、<strong>部分可選</strong>，還有<strong>相依條件</strong>（例如：設定 A 開了才能設 B/C）。</li>
+<li>建構步驟需要<strong>順序</strong>或<strong>校驗</strong>（例如：先載入配置、再建立連線、再注入憑證）。</li>
+<li>想要<strong>易讀的 Fluent API</strong>（鏈式呼叫），並在 <code>Build()</code> 時集中做<strong>合法性檢查</strong>與<strong>預設值填充</strong>。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">經典角色（對照 Go 寫法） 
+    <div id="%E7%B6%93%E5%85%B8%E8%A7%92%E8%89%B2%E5%B0%8D%E7%85%A7-go-%E5%AF%AB%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B6%93%E5%85%B8%E8%A7%92%E8%89%B2%E5%B0%8D%E7%85%A7-go-%E5%AF%AB%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Product（產品）</strong>：要被建好的複雜結構。</li>
+<li><strong>Builder（抽象/介面）</strong>：定義建構步驟。</li>
+<li><strong>Concrete Builder（具體建造者）</strong>：實作每一步並持有中間狀態。</li>
+<li><strong>Director（選用）</strong>：規範「建構次序」的高階流程（可重用）。</li>
+</ul>
+<p>在 Go 中，常見兩條路：</p>
+<ol>
+<li><strong>Fluent Builder 結構體</strong>（最常用）：<code>type XBuilder struct{ ... }</code>，提供 <code>With...()</code> 鏈式方法與 <code>Build() (X, error)</code>。</li>
+<li><strong>Functional Options</strong>（Go 慣用替代）：<code>NewX(Option...)</code>，用函式組裝設定；語感像 Builder，但更貼近 Go 生態。</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">範例 1：Fluent Builder（最實用） 
+    <div id="%E7%AF%84%E4%BE%8B-1fluent-builder%E6%9C%80%E5%AF%A6%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-1fluent-builder%E6%9C%80%E5%AF%A6%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>場景</strong>：建構一個發送任務 <code>Job</code>，包含必填 <code>Name</code> 與多個可選參數（重試策略、截止時間、標籤、回呼 URL…），並在 <code>Build()</code> 做<strong>集中校驗</strong>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">job</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;errors&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/url&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 產品</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Job</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">MaxRetry</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Deadline</span>  <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Tags</span>      <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Callback</span>  <span class="o">*</span><span class="nx">url</span><span class="p">.</span><span class="nx">URL</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">DebugMode</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Builder</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Builder</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">maxRetry</span>  <span class="o">*</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">deadline</span>  <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tags</span>      <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">callback</span>  <span class="o">*</span><span class="nx">url</span><span class="p">.</span><span class="nx">URL</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">debugMode</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 必填參數通常放在 NewBuilder 或專用 With</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewBuilder</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Builder</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 鏈式可選參數</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">WithMaxRetry</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">maxRetry</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">n</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">deadline</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">t</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">AddTags</span><span class="p">(</span><span class="nx">tags</span> <span class="o">...</span><span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">tags</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">,</span> <span class="nx">tags</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">WithCallback</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">u</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="nx">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">b</span><span class="p">.</span><span class="nx">callback</span> <span class="p">=</span> <span class="nx">u</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 若想在 Build 才集中回報錯，可先存字串、延後解析</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">EnableDebug</span><span class="p">()</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">debugMode</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Build：做預設值、校驗、不可變化（複製切片）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">Build</span><span class="p">()</span> <span class="p">(</span><span class="o">*</span><span class="nx">Job</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;name is required&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">maxRetry</span> <span class="o">:=</span> <span class="mi">3</span> <span class="c1">// default</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">maxRetry</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">*</span><span class="nx">b</span><span class="p">.</span><span class="nx">maxRetry</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;maxRetry must be &gt;= 0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">maxRetry</span> <span class="p">=</span> <span class="o">*</span><span class="nx">b</span><span class="p">.</span><span class="nx">maxRetry</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">deadline</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">deadline</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">deadline</span><span class="p">.</span><span class="nf">Before</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;deadline cannot be in the past&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">deadline</span> <span class="p">=</span> <span class="o">*</span><span class="nx">b</span><span class="p">.</span><span class="nx">deadline</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">tags</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">tags</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">copy</span><span class="p">(</span><span class="nx">tags</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">)</span> <span class="c1">// 不可變：避免外部再改 builder 的切片影響 product</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">j</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Job</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Name</span><span class="p">:</span>      <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">MaxRetry</span><span class="p">:</span>  <span class="nx">maxRetry</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Deadline</span><span class="p">:</span>  <span class="nx">deadline</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Tags</span><span class="p">:</span>      <span class="nx">tags</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Callback</span><span class="p">:</span>  <span class="nx">b</span><span class="p">.</span><span class="nx">callback</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">DebugMode</span><span class="p">:</span> <span class="nx">b</span><span class="p">.</span><span class="nx">debugMode</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">j</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>使用方式：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">j</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">job</span><span class="p">.</span><span class="nf">NewBuilder</span><span class="p">(</span><span class="s">&#34;send-report&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WithMaxRetry</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">AddTags</span><span class="p">(</span><span class="s">&#34;finance&#34;</span><span class="p">,</span> <span class="s">&#34;monthly&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)).</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">WithCallback</span><span class="p">(</span><span class="s">&#34;https://example.com/hook&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">EnableDebug</span><span class="p">().</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> <span class="cm">/* handle */</span> <span class="p">}</span>
+</span></span></code></pre></div><p><strong>重點：</strong></p>
+<ul>
+<li><code>Build()</code> 一次做<strong>預設值填充、關聯條件與合法性檢查</strong>。</li>
+<li>對切片/map 做<strong>拷貝</strong>，保證 <code>Job</code> <strong>不可變</strong>（或至少不受外部再改 Builder 影響）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例 2：加入 Director（建構流程可重用） 
+    <div id="%E7%AF%84%E4%BE%8B-2%E5%8A%A0%E5%85%A5-director%E5%BB%BA%E6%A7%8B%E6%B5%81%E7%A8%8B%E5%8F%AF%E9%87%8D%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-2%E5%8A%A0%E5%85%A5-director%E5%BB%BA%E6%A7%8B%E6%B5%81%E7%A8%8B%E5%8F%AF%E9%87%8D%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>若不同場景需要固定流程（例如：<strong>標準批次任務</strong> vs <strong>即時任務</strong>），可用 Director 封裝：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Director</span> <span class="kd">struct</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">StandardDaily</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">d</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UTC</span><span class="p">().</span><span class="nf">Truncate</span><span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">).</span><span class="nf">Add</span><span class="p">(</span><span class="mi">24</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)</span> <span class="c1">// 明日 00:00</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nf">NewBuilder</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">WithMaxRetry</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">d</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">AddTags</span><span class="p">(</span><span class="s">&#34;daily&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">Director</span><span class="p">)</span> <span class="nf">Realtime</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nf">NewBuilder</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">WithMaxRetry</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">AddTags</span><span class="p">(</span><span class="s">&#34;realtime&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>使用：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">d</span> <span class="o">:=</span> <span class="nx">job</span><span class="p">.</span><span class="nx">Director</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">j1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">d</span><span class="p">.</span><span class="nf">StandardDaily</span><span class="p">(</span><span class="s">&#34;billing&#34;</span><span class="p">).</span><span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">j2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">d</span><span class="p">.</span><span class="nf">Realtime</span><span class="p">(</span><span class="s">&#34;push-now&#34;</span><span class="p">).</span><span class="nf">EnableDebug</span><span class="p">().</span><span class="nf">Build</span><span class="p">()</span>
+</span></span></code></pre></div><hr>
+
+
+<h1 class="relative group">範例 3：Functional Options（Go 常用替代方案） 
+    <div id="%E7%AF%84%E4%BE%8B-3functional-optionsgo-%E5%B8%B8%E7%94%A8%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-3functional-optionsgo-%E5%B8%B8%E7%94%A8%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>比較</strong>：Functional Options 語感像 Builder，但<strong>不需要顯性 Builder 型別</strong>；參數少時更簡潔。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">opts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;errors&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/url&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Client</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">BaseURL</span>  <span class="o">*</span><span class="nx">url</span><span class="p">.</span><span class="nx">URL</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Timeout</span>  <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Retries</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Headers</span>  <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Debug</span>    <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Option</span> <span class="kd">func</span><span class="p">(</span><span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">WithTimeout</span><span class="p">(</span><span class="nx">d</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Duration</span><span class="p">)</span> <span class="nx">Option</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Timeout</span> <span class="p">=</span> <span class="nx">d</span><span class="p">;</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">WithRetries</span><span class="p">(</span><span class="nx">n</span> <span class="kt">int</span><span class="p">)</span> <span class="nx">Option</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">n</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;retries &lt; 0&#34;</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span><span class="p">.</span><span class="nx">Retries</span> <span class="p">=</span> <span class="nx">n</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">WithHeader</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Option</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Headers</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Headers</span> <span class="p">=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span><span class="p">.</span><span class="nx">Headers</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">WithBaseURL</span><span class="p">(</span><span class="nx">raw</span> <span class="kt">string</span><span class="p">)</span> <span class="nx">Option</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">u</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">url</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="nx">raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">err</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">c</span><span class="p">.</span><span class="nx">BaseURL</span> <span class="p">=</span> <span class="nx">u</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">WithDebug</span><span class="p">()</span> <span class="nx">Option</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Client</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Debug</span> <span class="p">=</span> <span class="kc">true</span><span class="p">;</span> <span class="k">return</span> <span class="kc">nil</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewClient</span><span class="p">(</span><span class="nx">opts</span> <span class="o">...</span><span class="nx">Option</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Client</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Client</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Timeout</span><span class="p">:</span> <span class="mi">5</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Retries</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">opt</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">opts</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">opt</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">c</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>使用：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">c</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">opts</span><span class="p">.</span><span class="nf">NewClient</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">opts</span><span class="p">.</span><span class="nf">WithBaseURL</span><span class="p">(</span><span class="s">&#34;https://api.example.com&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">opts</span><span class="p">.</span><span class="nf">WithTimeout</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">opts</span><span class="p">.</span><span class="nf">WithHeader</span><span class="p">(</span><span class="s">&#34;X-Trace&#34;</span><span class="p">,</span> <span class="s">&#34;123&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">opts</span><span class="p">.</span><span class="nf">WithDebug</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p><strong>何時選 Functional Options？</strong></p>
+<ul>
+<li>物件建構<strong>不需要分階段流程</strong>、只要設定<strong>可選參數</strong>與校驗。</li>
+<li>想要<strong>一行 new</strong>完成，不留持久的 Builder 狀態。</li>
+<li>Go 社群慣用、泛用性高。</li>
+</ul>
+<p><strong>何時選 Builder？</strong></p>
+<ul>
+<li>建構過程具<strong>多步驟語義</strong>（先 A 再 B）、需要<strong>導引使用者</strong>用正確順序。</li>
+<li><strong>Director</strong> 可重用一套流程（模板）。</li>
+<li>需要<strong>多次重用/微調</strong>同一個 Builder 以產生多個相似物件（見下）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例 4：Builder 重用、複製與「不可變化」策略 
+    <div id="%E7%AF%84%E4%BE%8B-4builder-%E9%87%8D%E7%94%A8%E8%A4%87%E8%A3%BD%E8%88%87%E4%B8%8D%E5%8F%AF%E8%AE%8A%E5%8C%96%E7%AD%96%E7%95%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-4builder-%E9%87%8D%E7%94%A8%E8%A4%87%E8%A3%BD%E8%88%87%E4%B8%8D%E5%8F%AF%E8%AE%8A%E5%8C%96%E7%AD%96%E7%95%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>有時你想「以某個 Builder 當樣板，微調後產生多個物件」。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 在 job.Builder 上加一個 Copy()，複製其內部狀態（深拷貝切片）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Builder</span><span class="p">)</span> <span class="nf">Copy</span><span class="p">()</span> <span class="o">*</span><span class="nx">Builder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">nb</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">b</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">tags</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">nb</span><span class="p">.</span><span class="nx">tags</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">copy</span><span class="p">(</span><span class="nx">nb</span><span class="p">.</span><span class="nx">tags</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">tags</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 其他需要深拷貝的欄位也要處理</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">nb</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用</span>
+</span></span><span class="line"><span class="cl"><span class="nx">base</span> <span class="o">:=</span> <span class="nx">job</span><span class="p">.</span><span class="nf">NewBuilder</span><span class="p">(</span><span class="s">&#34;daily-report&#34;</span><span class="p">).</span><span class="nf">WithMaxRetry</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">AddTags</span><span class="p">(</span><span class="s">&#34;finance&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">jA</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">base</span><span class="p">.</span><span class="nf">Copy</span><span class="p">().</span><span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="mi">12</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)).</span><span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">jB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">base</span><span class="p">.</span><span class="nf">Copy</span><span class="p">().</span><span class="nf">WithDeadline</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="mi">36</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)).</span><span class="nf">AddTags</span><span class="p">(</span><span class="s">&#34;urgent&#34;</span><span class="p">).</span><span class="nf">Build</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>注意</strong>：</p>
+<ul>
+<li><strong>Builder 本身不是執行緒安全</strong>；不要多 goroutine 共享同一個 Builder 寫入。必要時每個 goroutine 使用 <code>Copy()</code> 取得一份。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">校驗與錯誤處理的實務要點 
+    <div id="%E6%A0%A1%E9%A9%97%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86%E7%9A%84%E5%AF%A6%E5%8B%99%E8%A6%81%E9%BB%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%A1%E9%A9%97%E8%88%87%E9%8C%AF%E8%AA%A4%E8%99%95%E7%90%86%E7%9A%84%E5%AF%A6%E5%8B%99%E8%A6%81%E9%BB%9E" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>把<strong>所有合法性檢查</strong>集中在 <code>Build()</code>（或 Functional Option 內各自回錯）。</li>
+<li>有「<strong>相依條件</strong>」時（例如 deadline 必須晚於現在、或某模式下必須設置 callback），在 <code>Build()</code> 一次檢查，讓使用者只要看一個錯誤出口。</li>
+<li>對可變容器（slice/map）做<strong>拷貝</strong>，避免外界修改引起資料競態或不可預期變動。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">與其他創建型模式比較 
+    <div id="%E8%88%87%E5%85%B6%E4%BB%96%E5%89%B5%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E6%AF%94%E8%BC%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%88%87%E5%85%B6%E4%BB%96%E5%89%B5%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E6%AF%94%E8%BC%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<table>
+  <thead>
+      <tr>
+          <th>模式</th>
+          <th>著力點</th>
+          <th>適用情境</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Factory Method</strong></td>
+          <td>把「建」與「用」解耦，替換單一產品類型</td>
+          <td>需要多型建立但建構流程不複雜</td>
+      </tr>
+      <tr>
+          <td><strong>Abstract Factory</strong></td>
+          <td>一次產出一<strong>族</strong>相關產品</td>
+          <td>平台/品牌一致的成套替換</td>
+      </tr>
+      <tr>
+          <td><strong>Prototype</strong></td>
+          <td>以<strong>複製</strong>現有原型得到新物件</td>
+          <td>初始化昂貴，模板 → 大量微調</td>
+      </tr>
+      <tr>
+          <td><strong>Builder</strong></td>
+          <td><strong>分步驟</strong>建構、可讀性與校驗</td>
+          <td>參數眾多、具順序/相依條件</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+
+<h1 class="relative group">常見陷阱與最佳實務 
+    <div id="%E5%B8%B8%E8%A6%8B%E9%99%B7%E9%98%B1%E8%88%87%E6%9C%80%E4%BD%B3%E5%AF%A6%E5%8B%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E8%A6%8B%E9%99%B7%E9%98%B1%E8%88%87%E6%9C%80%E4%BD%B3%E5%AF%A6%E5%8B%99" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ol>
+<li><strong>Builder 泄漏可變狀態</strong>：切片/map 指到同一底層 → 在 <code>Build()</code> 務必<strong>拷貝</strong>。</li>
+<li><strong>把錯誤分散在各 <code>With...()</code></strong>：可讀性差；通常集中在 <code>Build()</code>（或 Functional Option 回錯）。</li>
+<li><strong>過度工程化</strong>：參數很少、沒順序要求 → 直接 struct 字面量或 Functional Options 即可。</li>
+<li><strong>執行緒安全</strong>：Builder 僅作為<strong>裝配器</strong>，不要在多 goroutine 間共享寫入。</li>
+<li><strong>預設值策略</strong>：在 <code>Build()</code> 統一補齊；把<strong>必填</strong>參數放在 <code>NewBuilder(required...)</code>；其餘 <code>With...()</code>。</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">迷你可跑範例（含測試思維） 
+    <div id="%E8%BF%B7%E4%BD%A0%E5%8F%AF%E8%B7%91%E7%AF%84%E4%BE%8B%E5%90%AB%E6%B8%AC%E8%A9%A6%E6%80%9D%E7%B6%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B7%E4%BD%A0%E5%8F%AF%E8%B7%91%E7%AF%84%E4%BE%8B%E5%90%AB%E6%B8%AC%E8%A9%A6%E6%80%9D%E7%B6%AD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Report</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>     <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Period</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Timezone</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Emails</span>   <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">RunAt</span>    <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ReportBuilder</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">name</span>     <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">period</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">timezone</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">emails</span>   <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">runAt</span>    <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewReportBuilder</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">ReportBuilder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">ReportBuilder</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">Weekly</span><span class="p">()</span> <span class="o">*</span><span class="nx">ReportBuilder</span>  <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">period</span> <span class="p">=</span> <span class="s">&#34;weekly&#34;</span><span class="p">;</span> <span class="k">return</span> <span class="nx">b</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">Daily</span><span class="p">()</span> <span class="o">*</span><span class="nx">ReportBuilder</span>   <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">period</span> <span class="p">=</span> <span class="s">&#34;daily&#34;</span><span class="p">;</span> <span class="k">return</span> <span class="nx">b</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">TZ</span><span class="p">(</span><span class="nx">tz</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">ReportBuilder</span> <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">timezone</span> <span class="p">=</span> <span class="nx">tz</span><span class="p">;</span> <span class="k">return</span> <span class="nx">b</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">Notify</span><span class="p">(</span><span class="nx">emails</span> <span class="o">...</span><span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">ReportBuilder</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">b</span><span class="p">.</span><span class="nx">emails</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">emails</span><span class="p">,</span> <span class="nx">emails</span><span class="o">...</span><span class="p">);</span> <span class="k">return</span> <span class="nx">b</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">RunAt</span><span class="p">(</span><span class="nx">t</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="o">*</span><span class="nx">ReportBuilder</span> <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">runAt</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">t</span><span class="p">;</span> <span class="k">return</span> <span class="nx">b</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">ReportBuilder</span><span class="p">)</span> <span class="nf">Build</span><span class="p">()</span> <span class="p">(</span><span class="o">*</span><span class="nx">Report</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;name required&#34;</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">period</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">period</span> <span class="p">=</span> <span class="s">&#34;monthly&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tz</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">timezone</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">tz</span> <span class="o">==</span> <span class="s">&#34;&#34;</span> <span class="p">{</span> <span class="nx">tz</span> <span class="p">=</span> <span class="s">&#34;Asia/Taipei&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">emails</span> <span class="p">[]</span><span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">emails</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">emails</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">emails</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">copy</span><span class="p">(</span><span class="nx">emails</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">emails</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">run</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">runAt</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">b</span><span class="p">.</span><span class="nx">runAt</span><span class="p">.</span><span class="nf">Before</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;runAt in the past&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">run</span> <span class="p">=</span> <span class="o">*</span><span class="nx">b</span><span class="p">.</span><span class="nx">runAt</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Report</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Name</span><span class="p">:</span>     <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Period</span><span class="p">:</span>   <span class="nx">b</span><span class="p">.</span><span class="nx">period</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Timezone</span><span class="p">:</span> <span class="nx">tz</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">Emails</span><span class="p">:</span>   <span class="nx">emails</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">RunAt</span><span class="p">:</span>    <span class="nx">run</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">NewReportBuilder</span><span class="p">(</span><span class="s">&#34;Finance&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Weekly</span><span class="p">().</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">TZ</span><span class="p">(</span><span class="s">&#34;Asia/Taipei&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Notify</span><span class="p">(</span><span class="s">&#34;ops@example.com&#34;</span><span class="p">,</span> <span class="s">&#34;cfo@example.com&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">RunAt</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">Add</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Hour</span><span class="p">)).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Build</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span> <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%+v\n&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><blockquote>
+<p>測試要點：</p>
+<ul>
+<li>修改 Builder 內的 <code>emails</code> 之後不應影響已建好的 <code>Report</code>（檢查是否有拷貝）。</li>
+<li>演練 <code>Build()</code> 的錯誤分支（缺必填、時間在過去等）。</li>
+</ul></blockquote>
+<hr>
+
+
+<h1 class="relative group">總結 
+    <div id="%E7%B8%BD%E7%B5%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B8%BD%E7%B5%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Builder</strong> 讓複雜建構「可讀、可控、可驗證」，在 Go 以 <strong>Fluent Builder</strong> 與 <strong>Functional Options</strong> 最常見。</li>
+<li>大原則：<strong>必填在建構期</strong>、<strong>可選用 <code>With...()</code></strong>、<strong><code>Build()</code> 統一校驗/補預設</strong>、<strong>避免可變容器外洩</strong>。</li>
+<li>有「固定建構流程」就用 <strong>Director</strong>；要量產相近配置就提供 <strong>Builder.Copy()</strong>。</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/adapter-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/adapter-with-go/">Adapter with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/adapter/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Adapter
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Adapter with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/decorator-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/decorator-with-go/">Decorator with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/decorator/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Decorator
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Decorator with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/abstract-factory-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/abstract-factory-with-go/">Abstract factory with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/abstract-factory/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Abstract Factory
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Abstract factory with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\/Builder with Go\/index.md"
+        var oid_likes = "likes_docs\/Builder with Go\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/bridge-with-go/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Bridge with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/chain-of-responsibility-with-go/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Chain of Responsibility with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="https://github.com/weiz-98"
+            title="">
+            
+            <span >
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+            </span>
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      WZ Chen
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://weiz-98.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

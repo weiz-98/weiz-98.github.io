@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="twn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Visitor with Go &middot; WZ Chen</title>
+  <meta name="title" content="Visitor with Go &middot; WZ Chen" />
+  
+  <meta name="description" content="Visitor with Go" />
+  <meta name="keywords" content="Go, Visitor, " />
+  
+  
+  <link rel="canonical" href="https://weiz-98.github.io/docs/visitor-with-go/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.f88bdf262f6df8418ce7e23e3c2483bca8a1e86d51d7528a9c62be5681e9dc1b693a7c25bcf112b5242d2f72e5e44902ff17dda3ca098b4e15898622c6a9e87b.js"
+    integrity="sha512-&#43;IvfJi9t&#43;EGM5&#43;I&#43;PCSDvKih6G1R11KKnGK&#43;VoHp3BtpOnwlvPEStSQtL3Ll5EkC/xfdo8oJi04ViYYixqnoew==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://weiz-98.github.io/docs/visitor-with-go/">
+  <meta property="og:site_name" content="WZ Chen">
+  <meta property="og:title" content="Visitor with Go">
+  <meta property="og:description" content="Visitor with Go">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="Visitor">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Visitor with Go">
+  <meta name="twitter:description" content="Visitor with Go">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "All my post",
+    "name": "Visitor with Go",
+    "headline": "Visitor with Go",
+    
+    "abstract": "Visitor with Go",
+    "inLanguage": "en",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/visitor-with-go\/",
+    "author" : {
+      "@type": "Person",
+      "name": "WZ Chen"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-04T00:00:00\u002b00:00",
+    "datePublished": "2025-09-04T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-09-04T00:00:00\u002b00:00",
+    
+    "keywords": ["Go","Visitor"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2363"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="WZ Chen" />
+  
+  
+  
+  <link href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" rel="me" />
+  
+  
+  <link href="https://github.com/weiz-98" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W091VSDB08"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W091VSDB08');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">WZ Chen</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="All my post">
+        Blog
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Categories">
+        Categories
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About Me">
+        About
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="All my post">
+            Blog
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Categories">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About Me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      ></a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >All my post</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/visitor-with-go/"
+      >Visitor with Go</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Visitor with Go
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/visitor/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Visitor
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+        
+            
+          
+          
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/seal_hu_62f4ddec727f91f4.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <a  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      WZ Chen
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">菜鳥 coder</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" target="_blank"
+          aria-label="Linkedin" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://github.com/weiz-98" target="_blank"
+          aria-label="Github" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#範例-1shape-元素樹area--perimeter-訪問者">範例 1：Shape 元素樹（Area / Perimeter 訪問者）</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#範例-1shape-元素樹area--perimeter-訪問者">範例 1：Shape 元素樹（Area / Perimeter 訪問者）</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>下面用「繁體中文＋ Golang」帶你一次吃透 Visitor（訪問者）模式：動機、結構、什麼時候用、在 Go 的實作要點（含經典雙重派發、Acyclic Visitor、函式版）、以及容易踩的坑與測試建議。</p>
+
+
+<h1 class="relative group">Visitor 是什麼？為何需要？ 
+    <div id="visitor-%E6%98%AF%E4%BB%80%E9%BA%BC%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#visitor-%E6%98%AF%E4%BB%80%E9%BA%BC%E7%82%BA%E4%BD%95%E9%9C%80%E8%A6%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>**Visitor（訪問者）<strong>把「對一組</strong>既有資料結構（元素階層）**的各種操作」抽離成獨立物件（訪問者）。
+<strong>核心交換</strong>：</p>
+<ul>
+<li><strong>易增訪問者</strong>（新增一種操作很容易）</li>
+<li><strong>難增元素型別</strong>（加新節點類型要改所有訪問者）</li>
+</ul>
+<p>典型應用：</p>
+<ul>
+<li>編譯器/直譯器中的 <strong>AST 走訪</strong>（計算值、印成字串、產生位元碼）。</li>
+<li>複雜樹狀物件（檔案系統、GUI 元件樹、圖形場景）上的多種操作（面積/周長/匯出/渲染/驗證/權限檢查）。</li>
+<li>報表系統在既有模型上做不同聚合/輸出格式。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">經典結構（雙重派發 / Double Dispatch） 
+    <div id="%E7%B6%93%E5%85%B8%E7%B5%90%E6%A7%8B%E9%9B%99%E9%87%8D%E6%B4%BE%E7%99%BC--double-dispatch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B6%93%E5%85%B8%E7%B5%90%E6%A7%8B%E9%9B%99%E9%87%8D%E6%B4%BE%E7%99%BC--double-dispatch" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Go 沒有多型方法多載，但可用「介面 + 每個具體元素各有一個 Visit 方法」達成雙重派發。</p>
+<pre tabindex="0"><code>Visitor 介面：VisitXxx(*Xxx)
+Element 介面：Accept(Visitor)
+
+Client -&gt; Element.Accept(v) -&gt; v.VisitConcreteElement(e)
+</code></pre>
+
+<h2 class="relative group">範例 1：Shape 元素樹（Area / Perimeter 訪問者） 
+    <div id="%E7%AF%84%E4%BE%8B-1shape-%E5%85%83%E7%B4%A0%E6%A8%B9area--perimeter-%E8%A8%AA%E5%95%8F%E8%80%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-1shape-%E5%85%83%E7%B4%A0%E6%A8%B9area--perimeter-%E8%A8%AA%E5%95%8F%E8%80%85" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">shape</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// --- Elements ---</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Element</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Circle</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">R</span> <span class="kt">float64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Circle</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">{</span> <span class="nx">v</span><span class="p">.</span><span class="nf">VisitCircle</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Rect</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">W</span><span class="p">,</span> <span class="nx">H</span> <span class="kt">float64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Rect</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">{</span> <span class="nx">v</span><span class="p">.</span><span class="nf">VisitRect</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// --- Visitor ---</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Visitor</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">VisitCircle</span><span class="p">(</span><span class="o">*</span><span class="nx">Circle</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">VisitRect</span><span class="p">(</span><span class="o">*</span><span class="nx">Rect</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// AreaVisitor：計算面積</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">AreaVisitor</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">Area</span> <span class="kt">float64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">AreaVisitor</span><span class="p">)</span> <span class="nf">VisitCircle</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Circle</span><span class="p">)</span> <span class="p">{</span> <span class="nx">a</span><span class="p">.</span><span class="nx">Area</span> <span class="o">+=</span> <span class="mf">3.1415926535</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">R</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">R</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">AreaVisitor</span><span class="p">)</span> <span class="nf">VisitRect</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Rect</span><span class="p">)</span>     <span class="p">{</span> <span class="nx">a</span><span class="p">.</span><span class="nx">Area</span> <span class="o">+=</span> <span class="nx">r</span><span class="p">.</span><span class="nx">W</span> <span class="o">*</span> <span class="nx">r</span><span class="p">.</span><span class="nx">H</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PerimeterVisitor：計算周長</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">PerimeterVisitor</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">Sum</span> <span class="kt">float64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PerimeterVisitor</span><span class="p">)</span> <span class="nf">VisitCircle</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Circle</span><span class="p">)</span> <span class="p">{</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Sum</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">3.1415926535</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">R</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PerimeterVisitor</span><span class="p">)</span> <span class="nf">VisitRect</span><span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">Rect</span><span class="p">)</span>     <span class="p">{</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Sum</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">W</span> <span class="o">+</span> <span class="nx">r</span><span class="p">.</span><span class="nx">H</span><span class="p">)</span> <span class="p">}</span>
+</span></span></code></pre></div><p>使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">s</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Element</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Circle</span><span class="p">{</span><span class="nx">R</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Rect</span><span class="p">{</span><span class="nx">W</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">H</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">area</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">AreaVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">peri</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">PerimeterVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">peri</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// area.Area, peri.Sum 即為結果</span>
+</span></span></code></pre></div><p><strong>重點</strong></p>
+<ul>
+<li>新增訪問者（例如 ExportVisitor、ValidateVisitor）→ <strong>不動元素結構</strong>。</li>
+<li>若新增元素（例如 Triangle），<strong>所有訪問者都要補 VisitTriangle</strong>（缺點）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例 2：AST 訪問（Eval / Print） 
+    <div id="%E7%AF%84%E4%BE%8B-2ast-%E8%A8%AA%E5%95%8Feval--print" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B-2ast-%E8%A8%AA%E5%95%8Feval--print" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>AST 是 Visitor 的經典場景：節點種類固定（Binary/Number/Unary…），但操作很多（求值、印字串、類型檢查、最佳化…）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">ast</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// --- Elements (AST Nodes) ---</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Node</span> <span class="kd">interface</span><span class="p">{</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Num</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">V</span> <span class="kt">int</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">Num</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">{</span> <span class="nx">v</span><span class="p">.</span><span class="nf">VisitNum</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Add</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span> <span class="nx">Node</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Add</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">{</span> <span class="nx">v</span><span class="p">.</span><span class="nf">VisitAdd</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Mul</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">L</span><span class="p">,</span> <span class="nx">R</span> <span class="nx">Node</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mul</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">{</span> <span class="nx">v</span><span class="p">.</span><span class="nf">VisitMul</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// --- Visitor ---</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Visitor</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">VisitNum</span><span class="p">(</span><span class="o">*</span><span class="nx">Num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">VisitAdd</span><span class="p">(</span><span class="o">*</span><span class="nx">Add</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">VisitMul</span><span class="p">(</span><span class="o">*</span><span class="nx">Mul</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// EvalVisitor：計算值</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">EvalVisitor</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">stack</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">push</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stack</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">pop</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span> <span class="nx">v</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stack</span> <span class="p">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="k">return</span> <span class="nx">v</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">VisitNum</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">Num</span><span class="p">)</span> <span class="p">{</span> <span class="nx">e</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">n</span><span class="p">.</span><span class="nx">V</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">VisitAdd</span><span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Add</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">a</span><span class="p">.</span><span class="nx">L</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> <span class="nx">a</span><span class="p">.</span><span class="nx">R</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">,</span> <span class="nx">l</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">pop</span><span class="p">(),</span> <span class="nx">e</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">VisitMul</span><span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mul</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">m</span><span class="p">.</span><span class="nx">L</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> <span class="nx">m</span><span class="p">.</span><span class="nx">R</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">,</span> <span class="nx">l</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.</span><span class="nf">pop</span><span class="p">(),</span> <span class="nx">e</span><span class="p">.</span><span class="nf">pop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">e</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="nx">l</span> <span class="o">*</span> <span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">e</span> <span class="o">*</span><span class="nx">EvalVisitor</span><span class="p">)</span> <span class="nf">Result</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">stack</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PrintVisitor：印成中序字串（含括號）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">PrintVisitor</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">buf</span> <span class="p">[]</span><span class="kt">byte</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PrintVisitor</span><span class="p">)</span> <span class="nf">write</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">){</span> <span class="nx">p</span><span class="p">.</span><span class="nx">buf</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">buf</span><span class="p">,</span> <span class="nx">s</span><span class="o">...</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PrintVisitor</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">string</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">buf</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PrintVisitor</span><span class="p">)</span> <span class="nf">VisitNum</span><span class="p">(</span><span class="nx">n</span> <span class="o">*</span><span class="nx">Num</span><span class="p">)</span> <span class="p">{</span> <span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">.</span><span class="nx">V</span><span class="p">))</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PrintVisitor</span><span class="p">)</span> <span class="nf">VisitAdd</span><span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="nx">Add</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;(&#34;</span><span class="p">);</span> <span class="nx">a</span><span class="p">.</span><span class="nx">L</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34; + &#34;</span><span class="p">);</span> <span class="nx">a</span><span class="p">.</span><span class="nx">R</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">PrintVisitor</span><span class="p">)</span> <span class="nf">VisitMul</span><span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">Mul</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;(&#34;</span><span class="p">);</span> <span class="nx">m</span><span class="p">.</span><span class="nx">L</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34; * &#34;</span><span class="p">);</span> <span class="nx">m</span><span class="p">.</span><span class="nx">R</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span> <span class="nx">p</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="s">&#34;)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">expr</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Add</span><span class="p">{</span> <span class="c1">// (2 + 3) * 4</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">L</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Add</span><span class="p">{</span><span class="nx">L</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Num</span><span class="p">{</span><span class="mi">2</span><span class="p">},</span> <span class="nx">R</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Num</span><span class="p">{</span><span class="mi">3</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">R</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Mul</span><span class="p">{</span><span class="nx">L</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Num</span><span class="p">{</span><span class="mi">4</span><span class="p">},</span> <span class="nx">R</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">Num</span><span class="p">{</span><span class="mi">1</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">ev</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">EvalVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">expr</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">_</span> <span class="p">=</span> <span class="nx">ev</span><span class="p">.</span><span class="nf">Result</span><span class="p">()</span> <span class="c1">// -&gt; 10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">pv</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">ast</span><span class="p">.</span><span class="nx">PrintVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">expr</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">pv</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">_</span> <span class="p">=</span> <span class="nx">pv</span><span class="p">.</span><span class="nf">String</span><span class="p">()</span> <span class="c1">// -&gt; &#34;((2 + 3) + (4 * 1))&#34;</span>
+</span></span></code></pre></div><hr>
+
+
+<h1 class="relative group">Acyclic Visitor（去耦版）：用 type switch 避免方法膨脹 
+    <div id="acyclic-visitor%E5%8E%BB%E8%80%A6%E7%89%88%E7%94%A8-type-switch-%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95%E8%86%A8%E8%84%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#acyclic-visitor%E5%8E%BB%E8%80%A6%E7%89%88%E7%94%A8-type-switch-%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95%E8%86%A8%E8%84%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>若元素種類很多、但某些訪問者<strong>只關心其中幾個型別</strong>，可用「單一 <code>Visit(any)</code> + type switch」：不必為每個元素都定義方法。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Element</span> <span class="kd">interface</span><span class="p">{</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Visitor</span> <span class="kd">interface</span><span class="p">{</span> <span class="nf">Visit</span><span class="p">(</span><span class="kt">any</span><span class="p">)</span> <span class="p">}</span> <span class="c1">// 單一入口</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">File</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">Name</span> <span class="kt">string</span><span class="p">;</span> <span class="nx">Size</span> <span class="kt">int64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">File</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">){</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Visit</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Dir</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">Name</span> <span class="kt">string</span><span class="p">;</span> <span class="nx">Children</span> <span class="p">[]</span><span class="nx">Element</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">Dir</span><span class="p">)</span> <span class="nf">Accept</span><span class="p">(</span><span class="nx">v</span> <span class="nx">Visitor</span><span class="p">){</span> <span class="nx">v</span><span class="p">.</span><span class="nf">Visit</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 只關心 File 的訪問者</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">TotalSize</span> <span class="kd">struct</span><span class="p">{</span> <span class="nx">Sum</span> <span class="kt">int64</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TotalSize</span><span class="p">)</span> <span class="nf">Visit</span><span class="p">(</span><span class="nx">x</span> <span class="kt">any</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="nx">n</span> <span class="o">:=</span> <span class="nx">x</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="o">*</span><span class="nx">File</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">t</span><span class="p">.</span><span class="nx">Sum</span> <span class="o">+=</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Size</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="o">*</span><span class="nx">Dir</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Children</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>取捨</strong></p>
+<ul>
+<li>✅ 避免為每個元素都在 Visitor 上開一個方法（減少介面爆炸）。</li>
+<li>❌ 失去編譯期型別保證（type switch 若漏寫，可能靜默忽略）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">函式即訪問者（Go 風格） 
+    <div id="%E5%87%BD%E5%BC%8F%E5%8D%B3%E8%A8%AA%E5%95%8F%E8%80%85go-%E9%A2%A8%E6%A0%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E5%BC%8F%E5%8D%B3%E8%A8%AA%E5%95%8F%E8%80%85go-%E9%A2%A8%E6%A0%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>若你只是要「走訪元素並執行一段操作」，可以把 Visitor 壓縮成函式型別。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">WalkFunc</span> <span class="kd">func</span><span class="p">(</span><span class="nx">e</span> <span class="nx">Element</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">Walk</span><span class="p">(</span><span class="nx">e</span> <span class="nx">Element</span><span class="p">,</span> <span class="nx">f</span> <span class="nx">WalkFunc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="nx">n</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.(</span><span class="kd">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="o">*</span><span class="nx">File</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">f</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="o">*</span><span class="nx">Dir</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">f</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">n</span><span class="p">.</span><span class="nx">Children</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">Walk</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 用法：計數、搜尋、過濾、收集都很方便</span>
+</span></span><span class="line"><span class="cl"><span class="nx">count</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="nf">Walk</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">e</span> <span class="nx">Element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">e</span><span class="p">.(</span><span class="o">*</span><span class="nx">File</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span> <span class="nx">count</span><span class="o">++</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><p><strong>優點</strong>：極簡、可讀；<strong>缺點</strong>：不具完整的 Visitor 結構性與可擴充性（但常常已足夠）。</p>
+<hr>
+
+
+<h1 class="relative group">在 Go 的實務建議 
+    <div id="%E5%9C%A8-go-%E7%9A%84%E5%AF%A6%E5%8B%99%E5%BB%BA%E8%AD%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9C%A8-go-%E7%9A%84%E5%AF%A6%E5%8B%99%E5%BB%BA%E8%AD%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ol>
+<li>
+<p><strong>封裝與套件邊界</strong></p>
+<ul>
+<li>若元素型別（AST/樹）相對穩定，且操作常變 → 用經典 Visitor。</li>
+<li>若元素型別常新增 → 慎用，因為要改所有訪問者。可改走 <strong>type switch / acyclic</strong> 或多方法組合。</li>
+</ul>
+</li>
+<li>
+<p><strong>指標 vs 值</strong></p>
+<ul>
+<li>多半用 <strong>指標</strong>：避免拷貝、允許訪問者調整狀態（若你允許變更）。</li>
+<li>只讀訪問者則可仍用指標，但不要修改內容。</li>
+</ul>
+</li>
+<li>
+<p><strong>不可變 or 可變</strong></p>
+<ul>
+<li><strong>純讀取</strong>（計算、輸出、驗證）→ 不要改元素狀態，避免副作用。</li>
+<li><strong>轉換訪問者</strong>（如 AST Best-Practice：回傳新樹）→ 可改為 <code>VisitXxx(*Xxx) Node</code> 的風格，或建立 Builder。</li>
+</ul>
+</li>
+<li>
+<p><strong>錯誤處理</strong></p>
+<ul>
+<li>訪問者內可能需要傳遞錯誤，可在 Visitor 結構體上有 <code>Err error</code> 欄位；或讓 <code>Accept</code> 回傳 <code>error</code>（但就要改介面）。</li>
+</ul>
+</li>
+<li>
+<p><strong>效能</strong></p>
+<ul>
+<li>介面呼叫成本通常可忽略；超熱路徑考量扁平化、快取、或函式訪問者。</li>
+<li>避免在走訪中產生大量臨時物件（重複使用 buffer/stack）。</li>
+</ul>
+</li>
+<li>
+<p><strong>測試</strong></p>
+<ul>
+<li>每個 Visitor 用小型樹測邊界情況（空節點、深度、巨量子節點）。</li>
+<li>Snapshot/Golden 測試對 Print/Export 類訪問者很好用。</li>
+<li>Fuzz 測試可找型別分支遺漏。</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">與其它模式對比 
+    <div id="%E8%88%87%E5%85%B6%E5%AE%83%E6%A8%A1%E5%BC%8F%E5%B0%8D%E6%AF%94" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%88%87%E5%85%B6%E5%AE%83%E6%A8%A1%E5%BC%8F%E5%B0%8D%E6%AF%94" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Visitor vs. Strategy</strong>：兩者都抽離行為。Visitor 著重「在<strong>既有元素樹</strong>上新增操作」；Strategy 著重「替換演算法」。</li>
+<li><strong>Visitor vs. Composite</strong>：常一起使用。Composite 形成樹；Visitor 定義在樹上執行的操作。</li>
+<li><strong>Visitor vs. Iterator</strong>：Iterator 管 traversal；Visitor 管在每個節點上執行的「動作」。兩者可搭配（先 iterator 取序列，再對每個元素做 visitor）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">小型測試範例（以 Shape 為例） 
+    <div id="%E5%B0%8F%E5%9E%8B%E6%B8%AC%E8%A9%A6%E7%AF%84%E4%BE%8B%E4%BB%A5-shape-%E7%82%BA%E4%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%8F%E5%9E%8B%E6%B8%AC%E8%A9%A6%E7%AF%84%E4%BE%8B%E4%BB%A5-shape-%E7%82%BA%E4%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">shape_test</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;testing&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;example.com/shape&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">TestAreaPerimeter</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">shapes</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Element</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Circle</span><span class="p">{</span><span class="nx">R</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">Rect</span><span class="p">{</span><span class="nx">W</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">H</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">area</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">AreaVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">peri</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">shape</span><span class="p">.</span><span class="nx">PerimeterVisitor</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">shapes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">e</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">area</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">e</span><span class="p">.</span><span class="nf">Accept</span><span class="p">(</span><span class="nx">peri</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">area</span><span class="p">.</span><span class="nx">Area</span> <span class="o">!=</span> <span class="mf">3.1415926535</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">12</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;area mismatch: %v&#34;</span><span class="p">,</span> <span class="nx">area</span><span class="p">.</span><span class="nx">Area</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">peri</span><span class="p">.</span><span class="nx">Sum</span> <span class="p">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.1415926535</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">14</span><span class="o">-</span><span class="mf">1e-9</span> <span class="o">||</span> <span class="nx">peri</span><span class="p">.</span><span class="nx">Sum</span> <span class="p">&gt;</span> <span class="mi">2</span><span class="o">*</span><span class="mf">3.1415926535</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">14</span><span class="o">+</span><span class="mf">1e-9</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">t</span><span class="p">.</span><span class="nf">Fatalf</span><span class="p">(</span><span class="s">&#34;perimeter mismatch: %v&#34;</span><span class="p">,</span> <span class="nx">peri</span><span class="p">.</span><span class="nx">Sum</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+
+
+<h1 class="relative group">何時不要用 Visitor？ 
+    <div id="%E4%BD%95%E6%99%82%E4%B8%8D%E8%A6%81%E7%94%A8-visitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%95%E6%99%82%E4%B8%8D%E8%A6%81%E7%94%A8-visitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>元素型別變動頻繁（每加一種節點就得改所有訪問者）。</li>
+<li>結構很扁平、操作很少，用簡單的 <code>switch type</code> 更直接。</li>
+<li>只需要<strong>一次性</strong>操作；寫一個 helper 函式就好。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">速查清單（Cheat Sheet） 
+    <div id="%E9%80%9F%E6%9F%A5%E6%B8%85%E5%96%AEcheat-sheet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%9F%E6%9F%A5%E6%B8%85%E5%96%AEcheat-sheet" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>元素介面：<code>Accept(v Visitor)</code></li>
+<li>訪問者介面：<code>VisitXxx(*Xxx)</code>（雙重派發）</li>
+<li><strong>優先</strong>在「節點型別穩定、操作常新增」的系統使用（AST、模型匯出/校驗）。</li>
+<li>Go 的替代：<strong>Acyclic Visitor（單一 Visit + type switch）</strong>、<strong>函式訪問者</strong>，可讓開發更輕盈。</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/strategy-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/strategy-with-go/">Strategy with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/strategy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Strategy
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Strategy with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/abstract-factory-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/abstract-factory-with-go/">Abstract factory with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/abstract-factory/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Abstract Factory
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Abstract factory with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/adapter-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/adapter-with-go/">Adapter with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/adapter/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Adapter
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Adapter with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\/Visitor with Go\/index.md"
+        var oid_likes = "likes_docs\/Visitor with Go\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/template-method-with-go/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Template method with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/balanced-binary-tree/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Balanced Binary Tree</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-08-04T00:00:00&#43;00:00">2025-08-04</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="https://github.com/weiz-98"
+            title="">
+            
+            <span >
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+            </span>
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      WZ Chen
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://weiz-98.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

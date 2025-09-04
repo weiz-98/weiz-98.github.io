@@ -9,7 +9,237 @@
     <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
     <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
     <copyright>© 2025 WZ Chen</copyright>
-    <lastBuildDate>Mon, 04 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Abstract factory with Go</title>
+      <link>https://weiz-98.github.io/docs/abstract-factory-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/abstract-factory-with-go/</guid>
+      <description>Abstract factory with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Adapter with Go</title>
+      <link>https://weiz-98.github.io/docs/adapter-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/adapter-with-go/</guid>
+      <description>Adapter with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Bridge with Go</title>
+      <link>https://weiz-98.github.io/docs/bridge-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/bridge-with-go/</guid>
+      <description>Bridge with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Builder with Go</title>
+      <link>https://weiz-98.github.io/docs/builder-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/builder-with-go/</guid>
+      <description>Builder with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Chain of Responsibility with Go</title>
+      <link>https://weiz-98.github.io/docs/chain-of-responsibility-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/chain-of-responsibility-with-go/</guid>
+      <description>Chain of Responsibility with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Command with Go</title>
+      <link>https://weiz-98.github.io/docs/command-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/command-with-go/</guid>
+      <description>Command with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Composite with Go</title>
+      <link>https://weiz-98.github.io/docs/composite-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/composite-with-go/</guid>
+      <description>Composite with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Decorator with Go</title>
+      <link>https://weiz-98.github.io/docs/decorator-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/decorator-with-go/</guid>
+      <description>Decorator with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Facade with Go</title>
+      <link>https://weiz-98.github.io/docs/facade-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/facade-with-go/</guid>
+      <description>Facade with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Factory method with Go</title>
+      <link>https://weiz-98.github.io/docs/factory-method-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/factory-method-with-go/</guid>
+      <description>Factory method with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Flyweight with Go</title>
+      <link>https://weiz-98.github.io/docs/flyweight-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/flyweight-with-go/</guid>
+      <description>Flyweight with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Interpreter with Go</title>
+      <link>https://weiz-98.github.io/docs/interpreter-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/interpreter-with-go/</guid>
+      <description>Interpreter with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Iterator with Go</title>
+      <link>https://weiz-98.github.io/docs/iterator-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/iterator-with-go/</guid>
+      <description>Iterator with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Mediator with Go</title>
+      <link>https://weiz-98.github.io/docs/mediator-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/mediator-with-go/</guid>
+      <description>Mediator with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Memento with Go</title>
+      <link>https://weiz-98.github.io/docs/memento-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/memento-with-go/</guid>
+      <description>Memento with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Observer with Go</title>
+      <link>https://weiz-98.github.io/docs/observer-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/observer-with-go/</guid>
+      <description>Observer with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Prototype with Go</title>
+      <link>https://weiz-98.github.io/docs/prototype-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/prototype-with-go/</guid>
+      <description>Prototype with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Proxy with Go</title>
+      <link>https://weiz-98.github.io/docs/proxy-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/proxy-with-go/</guid>
+      <description>Proxy with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Singleton with Go</title>
+      <link>https://weiz-98.github.io/docs/singleton-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/singleton-with-go/</guid>
+      <description>Singleton with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>State with Go</title>
+      <link>https://weiz-98.github.io/docs/state-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/state-with-go/</guid>
+      <description>State with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Strategy with Go</title>
+      <link>https://weiz-98.github.io/docs/strategy-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/strategy-with-go/</guid>
+      <description>Strategy with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Template method with Go</title>
+      <link>https://weiz-98.github.io/docs/template-method-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/template-method-with-go/</guid>
+      <description>Template method with Go</description>
+      
+    </item>
+    
+    <item>
+      <title>Visitor with Go</title>
+      <link>https://weiz-98.github.io/docs/visitor-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/visitor-with-go/</guid>
+      <description>Visitor with Go</description>
+      
+    </item>
     
     <item>
       <title>Balanced Binary Tree</title>
@@ -28,6 +258,16 @@
       <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
       <guid>https://weiz-98.github.io/docs/invert-binary-tree/</guid>
       <description>Invert Binary Tree</description>
+      
+    </item>
+    
+    <item>
+      <title>Maximum Depth of Binary Tree</title>
+      <link>https://weiz-98.github.io/docs/maximum-depth-of-binary-tree/</link>
+      <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/maximum-depth-of-binary-tree/</guid>
+      <description>Maximum Depth of Binary Tree</description>
       
     </item>
     

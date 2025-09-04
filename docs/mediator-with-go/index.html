@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="twn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Mediator with Go &middot; WZ Chen</title>
+  <meta name="title" content="Mediator with Go &middot; WZ Chen" />
+  
+  <meta name="description" content="Mediator with Go" />
+  <meta name="keywords" content="Go, Mediator, " />
+  
+  
+  <link rel="canonical" href="https://weiz-98.github.io/docs/mediator-with-go/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.f88bdf262f6df8418ce7e23e3c2483bca8a1e86d51d7528a9c62be5681e9dc1b693a7c25bcf112b5242d2f72e5e44902ff17dda3ca098b4e15898622c6a9e87b.js"
+    integrity="sha512-&#43;IvfJi9t&#43;EGM5&#43;I&#43;PCSDvKih6G1R11KKnGK&#43;VoHp3BtpOnwlvPEStSQtL3Ll5EkC/xfdo8oJi04ViYYixqnoew==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://weiz-98.github.io/docs/mediator-with-go/">
+  <meta property="og:site_name" content="WZ Chen">
+  <meta property="og:title" content="Mediator with Go">
+  <meta property="og:description" content="Mediator with Go">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="Mediator">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mediator with Go">
+  <meta name="twitter:description" content="Mediator with Go">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "All my post",
+    "name": "Mediator with Go",
+    "headline": "Mediator with Go",
+    
+    "abstract": "Mediator with Go",
+    "inLanguage": "en",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/mediator-with-go\/",
+    "author" : {
+      "@type": "Person",
+      "name": "WZ Chen"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-04T00:00:00\u002b00:00",
+    "datePublished": "2025-09-04T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-09-04T00:00:00\u002b00:00",
+    
+    "keywords": ["Go","Mediator"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3247"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="WZ Chen" />
+  
+  
+  
+  <link href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" rel="me" />
+  
+  
+  <link href="https://github.com/weiz-98" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W091VSDB08"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W091VSDB08');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">WZ Chen</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="All my post">
+        Blog
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Categories">
+        Categories
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About Me">
+        About
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="All my post">
+            Blog
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Categories">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About Me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      ></a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >All my post</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/mediator-with-go/"
+      >Mediator with Go</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Mediator with Go
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/mediator/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Mediator
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+        
+            
+          
+          
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/seal_hu_62f4ddec727f91f4.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <a  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      WZ Chen
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">菜鳥 coder</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" target="_blank"
+          aria-label="Linkedin" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://github.com/weiz-98" target="_blank"
+          aria-label="Github" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>下面用「易懂 → 深入 → 實作 → 延伸」的順序，把行為型模式中的 <strong>Mediator（仲介者／調停者）</strong> 徹底講清楚，並用 <strong>Golang</strong> 實作多個範例（含逐步重構、執行輸出與進階話題：並發、耦合度、與 Observer/EventBus 的比較）。</p>
+<hr>
+
+
+<h1 class="relative group">Mediator 是什麼？ 
+    <div id="mediator-%E6%98%AF%E4%BB%80%E9%BA%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mediator-%E6%98%AF%E4%BB%80%E9%BA%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>定義</strong>：Mediator 將一組物件彼此之間錯綜複雜的「多對多互動」集中到一個「中介者」裡，讓各個物件（稱為 <strong>Colleague</strong>）不再直接相互呼叫，而是改為只認識 Mediator。
+<strong>目標</strong>：降低物件之間的<strong>耦合度</strong>、讓互動規則集中管理、使得每個成員更簡單、更容易替換與測試。</p>
+<ul>
+<li>沒有 Mediator：A 調 B、B 調 C、C 又調 A… 形成網狀依賴。</li>
+<li>有了 Mediator：A/B/C 都只呼叫 Mediator，互動規則統一在 Mediator。</li>
+</ul>
+<p><strong>典型角色</strong></p>
+<ul>
+<li><code>Mediator</code>：定義同事之間互動的抽象介面。</li>
+<li><code>ConcreteMediator</code>：落地實作互動規則；持有並協調各 <code>Colleague</code>。</li>
+<li><code>Colleague</code>：只負責各自職責，所有跨物件互動都透過 <code>Mediator</code>。</li>
+</ul>
+<p><strong>何時使用</strong></p>
+<ul>
+<li>UI 元件之間充滿相依（按鈕、輸入框、下拉選單彼此驅動）。</li>
+<li>子系統／模組之間互調規則多、且常改（例如工作流程引擎、聊天室路由、航管塔台）。</li>
+<li>想降低單元測試與替換成本：把規則集中到 Mediator，其他成員保持單純。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">Mediator 的好處與代價 
+    <div id="mediator-%E7%9A%84%E5%A5%BD%E8%99%95%E8%88%87%E4%BB%A3%E5%83%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mediator-%E7%9A%84%E5%A5%BD%E8%99%95%E8%88%87%E4%BB%A3%E5%83%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>優點</strong></p>
+<ul>
+<li>降低同事物件的<strong>直接耦合</strong>，便於替換與單元測試。</li>
+<li>行為規則集中，<strong>變更點單一</strong>、可讀性提升。</li>
+<li>更容易新增／移除同事，不會牽動到一堆互相呼叫的地方。</li>
+</ul>
+<p><strong>可能缺點</strong></p>
+<ul>
+<li>Mediator 容易長大成為「上帝物件（God Object）」：所有規則都擠進來。</li>
+<li>若互動非常頻繁，單點 Mediator 可能成效能瓶頸，需要分片或事件化設計。</li>
+<li>需要謹慎處理<strong>併發</strong>與<strong>重入</strong>（特別在 Go 裡）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">先看「沒有 Mediator」的痛點（聊天室例） 
+    <div id="%E5%85%88%E7%9C%8B%E6%B2%92%E6%9C%89-mediator%E7%9A%84%E7%97%9B%E9%BB%9E%E8%81%8A%E5%A4%A9%E5%AE%A4%E4%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%88%E7%9C%8B%E6%B2%92%E6%9C%89-mediator%E7%9A%84%E7%97%9B%E9%BB%9E%E8%81%8A%E5%A4%A9%E5%AE%A4%E4%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>想像一個最陽春的聊天室：每個使用者要能傳訊息給其他人。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 直接持有其他使用者（糟糕示範）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Contacts</span> <span class="p">[]</span><span class="o">*</span><span class="nx">User</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">SendToAll</span><span class="p">(</span><span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Contacts</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">c</span><span class="p">.</span><span class="nf">Receive</span><span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">Receive</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[%s] &lt;- %s: %s\n&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alice</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">User</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Alice&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bob</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">User</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Bob&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">carol</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">User</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;Carol&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">alice</span><span class="p">.</span><span class="nx">Contacts</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">User</span><span class="p">{</span><span class="nx">bob</span><span class="p">,</span> <span class="nx">carol</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bob</span><span class="p">.</span><span class="nx">Contacts</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">User</span><span class="p">{</span><span class="nx">alice</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">carol</span><span class="p">.</span><span class="nx">Contacts</span> <span class="p">=</span> <span class="p">[]</span><span class="o">*</span><span class="nx">User</span><span class="p">{</span><span class="nx">alice</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">alice</span><span class="p">.</span><span class="nf">SendToAll</span><span class="p">(</span><span class="s">&#34;Hi all&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bob</span><span class="p">.</span><span class="nf">SendToAll</span><span class="p">(</span><span class="s">&#34;Hello Alice&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>問題</strong></p>
+<ul>
+<li><code>User</code> 必須知道其他人是誰，<code>Contacts</code> 變動就得同步更新別人的清單。</li>
+<li>新增「訊息審核、群組、禁言、私訊」等規則？得改多個地方。</li>
+<li>測試與替換困難，依賴關係像蜘蛛網。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">引入 Mediator（聊天室重構） 
+    <div id="%E5%BC%95%E5%85%A5-mediator%E8%81%8A%E5%A4%A9%E5%AE%A4%E9%87%8D%E6%A7%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%85%A5-mediator%E8%81%8A%E5%A4%A9%E5%AE%A4%E9%87%8D%E6%A7%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>我們把「傳遞與規則」集中在 <code>ChatRoom</code>（Mediator）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Mediator</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Register</span><span class="p">(</span><span class="nx">u</span> <span class="nx">Colleague</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Broadcast</span><span class="p">(</span><span class="nx">from</span> <span class="nx">Colleague</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Whisper</span><span class="p">(</span><span class="nx">from</span> <span class="nx">Colleague</span><span class="p">,</span> <span class="nx">to</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Colleague</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Name</span><span class="p">()</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Receive</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">m</span> <span class="nx">Mediator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ChatRoom</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mu</span>    <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">users</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">Colleague</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewChatRoom</span><span class="p">()</span> <span class="o">*</span><span class="nx">ChatRoom</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">ChatRoom</span><span class="p">{</span><span class="nx">users</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="nx">Colleague</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ChatRoom</span><span class="p">)</span> <span class="nf">Register</span><span class="p">(</span><span class="nx">u</span> <span class="nx">Colleague</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">u</span><span class="p">.</span><span class="nf">SetMediator</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">u</span><span class="p">.</span><span class="nf">Name</span><span class="p">()]</span> <span class="p">=</span> <span class="nx">u</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ChatRoom</span><span class="p">)</span> <span class="nf">Broadcast</span><span class="p">(</span><span class="nx">from</span> <span class="nx">Colleague</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 未來在這裡做過濾、審核、記錄、風控等規則都很自然</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">u</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">c</span><span class="p">.</span><span class="nx">users</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">name</span> <span class="o">==</span> <span class="nx">from</span><span class="p">.</span><span class="nf">Name</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">u</span><span class="p">.</span><span class="nf">Receive</span><span class="p">(</span><span class="nx">from</span><span class="p">.</span><span class="nf">Name</span><span class="p">(),</span> <span class="nx">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ChatRoom</span><span class="p">)</span> <span class="nf">Whisper</span><span class="p">(</span><span class="nx">from</span> <span class="nx">Colleague</span><span class="p">,</span> <span class="nx">to</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">target</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">to</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">!</span><span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;user %s not found&#34;</span><span class="p">,</span> <span class="nx">to</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">target</span><span class="p">.</span><span class="nf">Receive</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s(whisper)&#34;</span><span class="p">,</span> <span class="nx">from</span><span class="p">.</span><span class="nf">Name</span><span class="p">()),</span> <span class="nx">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span>    <span class="nx">Mediator</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewUser</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">User</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="nx">User</span><span class="p">{</span><span class="nx">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">Name</span><span class="p">()</span> <span class="kt">string</span>             <span class="p">{</span> <span class="k">return</span> <span class="nx">u</span><span class="p">.</span><span class="nx">name</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">m</span> <span class="nx">Mediator</span><span class="p">)</span>   <span class="p">{</span> <span class="nx">u</span><span class="p">.</span><span class="nx">m</span> <span class="p">=</span> <span class="nx">m</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">Receive</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;[%s] &lt;- %s: %s\n&#34;</span><span class="p">,</span> <span class="nx">u</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Colleague 只專注自身行為，跨物件互動交給 Mediator</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">Say</span><span class="p">(</span><span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span>          <span class="p">{</span> <span class="nx">u</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nf">Broadcast</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">u</span> <span class="o">*</span><span class="nx">User</span><span class="p">)</span> <span class="nf">Whisper</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span>  <span class="p">{</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">u</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nf">Whisper</span><span class="p">(</span><span class="nx">u</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">room</span> <span class="o">:=</span> <span class="nf">NewChatRoom</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alice</span> <span class="o">:=</span> <span class="nf">NewUser</span><span class="p">(</span><span class="s">&#34;Alice&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bob</span> <span class="o">:=</span> <span class="nf">NewUser</span><span class="p">(</span><span class="s">&#34;Bob&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">carol</span> <span class="o">:=</span> <span class="nf">NewUser</span><span class="p">(</span><span class="s">&#34;Carol&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">room</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">alice</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">room</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">bob</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">room</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">carol</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">alice</span><span class="p">.</span><span class="nf">Say</span><span class="p">(</span><span class="s">&#34;Hi all&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bob</span><span class="p">.</span><span class="nf">Whisper</span><span class="p">(</span><span class="s">&#34;Alice&#34;</span><span class="p">,</span> <span class="s">&#34;Hello privately&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">carol</span><span class="p">.</span><span class="nf">Say</span><span class="p">(</span><span class="s">&#34;Nice to meet you ~&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>觀察</strong></p>
+<ul>
+<li><code>User</code> 不再知道任何其他 <code>User</code> 的存在，只知道 <code>Mediator</code>。</li>
+<li>將來要新增「黑名單」「審核」「頻率限制」「關鍵字過濾」「訊息儲存」都只要改 <code>ChatRoom</code>。</li>
+<li>使用 <code>sync.RWMutex</code>，支援多讀單寫；在併發 <code>Say</code>/<code>Whisper</code> 時就比較安全。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">另一個經典：航管塔台（Air Traffic Control） 
+    <div id="%E5%8F%A6%E4%B8%80%E5%80%8B%E7%B6%93%E5%85%B8%E8%88%AA%E7%AE%A1%E5%A1%94%E5%8F%B0air-traffic-control" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%A6%E4%B8%80%E5%80%8B%E7%B6%93%E5%85%B8%E8%88%AA%E7%AE%A1%E5%A1%94%E5%8F%B0air-traffic-control" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>塔台 = Mediator；飛機 = Colleague。起降順序、跑道占用、天氣限制等規則集中在塔台。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Tower</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">RequestLanding</span><span class="p">(</span><span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">RequestTakeoff</span><span class="p">(</span><span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">NotifyLanded</span><span class="p">(</span><span class="o">*</span><span class="nx">Plane</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">NotifyTakeoff</span><span class="p">(</span><span class="o">*</span><span class="nx">Plane</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Plane</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">id</span>    <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tower</span> <span class="nx">Tower</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewPlane</span><span class="p">(</span><span class="nx">id</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="nx">Tower</span><span class="p">)</span> <span class="o">*</span><span class="nx">Plane</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="nx">Plane</span><span class="p">{</span><span class="nx">id</span><span class="p">:</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">tower</span><span class="p">:</span> <span class="nx">t</span><span class="p">}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="nf">AttemptLanding</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">tower</span><span class="p">.</span><span class="nf">RequestLanding</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;landing...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">p</span><span class="p">.</span><span class="nx">tower</span><span class="p">.</span><span class="nf">NotifyLanded</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;holding pattern (cannot land now)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="nf">AttemptTakeoff</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">p</span><span class="p">.</span><span class="nx">tower</span><span class="p">.</span><span class="nf">RequestTakeoff</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;taking off...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">p</span><span class="p">.</span><span class="nx">tower</span><span class="p">.</span><span class="nf">NotifyTakeoff</span><span class="p">(</span><span class="nx">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;wait to takeoff&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">SimpleTower</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">mu</span>          <span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">runwayFree</span>  <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewSimpleTower</span><span class="p">()</span> <span class="o">*</span><span class="nx">SimpleTower</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">SimpleTower</span><span class="p">{</span><span class="nx">runwayFree</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">SimpleTower</span><span class="p">)</span> <span class="nf">RequestLanding</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Tower] Landing granted to&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">SimpleTower</span><span class="p">)</span> <span class="nf">RequestTakeoff</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Tower] Takeoff granted to&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">SimpleTower</span><span class="p">)</span> <span class="nf">NotifyLanded</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Tower]&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;landed; runway free&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">SimpleTower</span><span class="p">)</span> <span class="nf">NotifyTakeoff</span><span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Plane</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">t</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Tower]&#34;</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="s">&#34;airborne; runway free&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">runwayFree</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tower</span> <span class="o">:=</span> <span class="nf">NewSimpleTower</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nf">NewPlane</span><span class="p">(</span><span class="s">&#34;A320@UA101&#34;</span><span class="p">,</span> <span class="nx">tower</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span> <span class="o">:=</span> <span class="nf">NewPlane</span><span class="p">(</span><span class="s">&#34;B738@DL202&#34;</span><span class="p">,</span> <span class="nx">tower</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span><span class="p">.</span><span class="nf">AttemptLanding</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span><span class="p">.</span><span class="nf">AttemptLanding</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span><span class="p">.</span><span class="nf">AttemptLanding</span><span class="p">()</span> <span class="c1">// 再試一次，等跑道釋放</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>重點</strong></p>
+<ul>
+<li>跑道資源與排程策略都在 <code>SimpleTower</code>，飛機不彼此溝通。</li>
+<li>要改「先來先服務」→「優先權（燃油低者先）」、多跑道、天氣條件，都只改塔台。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">UI 對話框範例（常見於桌面／Web GUI） 
+    <div id="ui-%E5%B0%8D%E8%A9%B1%E6%A1%86%E7%AF%84%E4%BE%8B%E5%B8%B8%E8%A6%8B%E6%96%BC%E6%A1%8C%E9%9D%A2web-gui" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ui-%E5%B0%8D%E8%A9%B1%E6%A1%86%E7%AF%84%E4%BE%8B%E5%B8%B8%E8%A6%8B%E6%96%BC%E6%A1%8C%E9%9D%A2web-gui" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>三個元件：<code>TextBox</code>、<code>Checkbox</code>、<code>Button</code>。規則：</p>
+<ul>
+<li>若 <code>Checkbox</code> 勾選「我同意」，且 <code>TextBox</code> 非空，才可啟用 <code>Button</code>。</li>
+<li>元件不互知，統一回報狀態變更給 <code>DialogMediator</code>。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Widget</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Changed</span><span class="p">()</span> <span class="c1">// 通知 Mediator：我變了</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">Mediator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Mediator</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">Notify</span><span class="p">(</span><span class="nx">sender</span> <span class="nx">Widget</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">DialogMediator</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">username</span> <span class="o">*</span><span class="nx">TextBox</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">agree</span>    <span class="o">*</span><span class="nx">Checkbox</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">submit</span>   <span class="o">*</span><span class="nx">Button</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewDialogMediator</span><span class="p">()</span> <span class="o">*</span><span class="nx">DialogMediator</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">DialogMediator</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nx">username</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">TextBox</span><span class="p">{</span><span class="nx">m</span><span class="p">:</span> <span class="nx">m</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nx">agree</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Checkbox</span><span class="p">{</span><span class="nx">m</span><span class="p">:</span> <span class="nx">m</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nx">submit</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">Button</span><span class="p">{</span><span class="nx">m</span><span class="p">:</span> <span class="nx">m</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">m</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">DialogMediator</span><span class="p">)</span> <span class="nf">Notify</span><span class="p">(</span><span class="nx">sender</span> <span class="nx">Widget</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nf">update</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">DialogMediator</span><span class="p">)</span> <span class="nf">update</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">canSubmit</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">text</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">agree</span><span class="p">.</span><span class="nx">checked</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span><span class="p">.</span><span class="nx">submit</span><span class="p">.</span><span class="nx">enabled</span> <span class="p">=</span> <span class="nx">canSubmit</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;UI =&gt; text:%q, agree:%v, submit.enabled:%v\n&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">m</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nx">agree</span><span class="p">.</span><span class="nx">checked</span><span class="p">,</span> <span class="nx">m</span><span class="p">.</span><span class="nx">submit</span><span class="p">.</span><span class="nx">enabled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ==== Widgets ====</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">TextBox</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span>    <span class="nx">Mediator</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TextBox</span><span class="p">)</span> <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">m</span> <span class="nx">Mediator</span><span class="p">)</span> <span class="p">{</span> <span class="nx">t</span><span class="p">.</span><span class="nx">m</span> <span class="p">=</span> <span class="nx">m</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TextBox</span><span class="p">)</span> <span class="nf">Changed</span><span class="p">()</span>               <span class="p">{</span> <span class="nx">t</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">TextBox</span><span class="p">)</span> <span class="nf">Input</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nx">text</span> <span class="p">=</span> <span class="nx">s</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">t</span><span class="p">.</span><span class="nf">Changed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Checkbox</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span>       <span class="nx">Mediator</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">checked</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Checkbox</span><span class="p">)</span> <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">m</span> <span class="nx">Mediator</span><span class="p">)</span> <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nx">m</span> <span class="p">=</span> <span class="nx">m</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Checkbox</span><span class="p">)</span> <span class="nf">Changed</span><span class="p">()</span>               <span class="p">{</span> <span class="nx">c</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Checkbox</span><span class="p">)</span> <span class="nf">Toggle</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">checked</span> <span class="p">=</span> <span class="p">!</span><span class="nx">c</span><span class="p">.</span><span class="nx">checked</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nf">Changed</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Button</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m</span>       <span class="nx">Mediator</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enabled</span> <span class="kt">bool</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Button</span><span class="p">)</span> <span class="nf">SetMediator</span><span class="p">(</span><span class="nx">m</span> <span class="nx">Mediator</span><span class="p">)</span> <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">m</span> <span class="p">=</span> <span class="nx">m</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Button</span><span class="p">)</span> <span class="nf">Changed</span><span class="p">()</span>               <span class="p">{</span> <span class="nx">b</span><span class="p">.</span><span class="nx">m</span><span class="p">.</span><span class="nf">Notify</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">Button</span><span class="p">)</span> <span class="nf">Click</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">!</span><span class="nx">b</span><span class="p">.</span><span class="nx">enabled</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Button disabled&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Submitted!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dialog</span> <span class="o">:=</span> <span class="nf">NewDialogMediator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dialog</span><span class="p">.</span><span class="nx">username</span><span class="p">.</span><span class="nf">Input</span><span class="p">(</span><span class="s">&#34;ian&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dialog</span><span class="p">.</span><span class="nx">agree</span><span class="p">.</span><span class="nf">Toggle</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dialog</span><span class="p">.</span><span class="nx">submit</span><span class="p">.</span><span class="nf">Click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>觀念</strong></p>
+<ul>
+<li>規則集中在 <code>DialogMediator.update()</code>。</li>
+<li>元件只負責自身狀態與向 mediator 回報改變，避免交叉操控。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">併發與實務注意（Go 特別版） 
+    <div id="%E4%BD%B5%E7%99%BC%E8%88%87%E5%AF%A6%E5%8B%99%E6%B3%A8%E6%84%8Fgo-%E7%89%B9%E5%88%A5%E7%89%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%B5%E7%99%BC%E8%88%87%E5%AF%A6%E5%8B%99%E6%B3%A8%E6%84%8Fgo-%E7%89%B9%E5%88%A5%E7%89%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ol>
+<li>
+<p><strong>鎖的粒度</strong></p>
+<ul>
+<li>讀多寫少場景（聊天室 broadcast）：使用 <code>RWMutex</code>；寫操作（註冊、黑名單更新）使用 <code>Lock</code>。</li>
+<li>如需跨 goroutine 回呼，<strong>避免持鎖呼叫外部方法</strong>（可能造成死鎖或長時間阻塞）；可先複製快照，在鎖外迭代發送。</li>
+</ul>
+</li>
+<li>
+<p><strong>去抖／節流</strong></p>
+<ul>
+<li>UI／事件風暴時可在 Mediator 端加 debounce/throttle，或以 channel 緩衝（worker pool 消化）。</li>
+</ul>
+</li>
+<li>
+<p><strong>可組態化</strong></p>
+<ul>
+<li>把規則拆成策略（Strategy）或責任鏈（Chain of Responsibility）注入 Mediator，避免變成 God Object。</li>
+</ul>
+</li>
+<li>
+<p><strong>測試</strong></p>
+<ul>
+<li>對 <code>Mediator</code> 寫單元測試（mock Colleague）；對 <code>Colleague</code> 則以假 mediator 驗證它只做該做的事。</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">與其他模式的比較 
+    <div id="%E8%88%87%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BC%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%88%87%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%AF%94%E8%BC%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Observer</strong>：一對多通知，Publisher 不認識 Subscriber 細節；適合「廣播式變更」。
+Mediator 則是<strong>集中協調具體互動規則</strong>，常常需要知道每個參與者狀態來做判斷。</li>
+<li><strong>Event Bus</strong>：更鬆散、去中心化；處理全域事件分派。
+Mediator 偏向「上下文限定（同一對話框／同一聊天室）」的<strong>局部協調中心</strong>。</li>
+<li><strong>Facade</strong>：對外簡化子系統介面；不負責內部物件互動流程。
+Mediator 則<strong>主導內部互動</strong>。</li>
+<li><strong>Command</strong>：封裝請求；常與 Mediator 合用，把互動請求包成命令交給 Mediator 執行。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">設計建議（落地清單） 
+    <div id="%E8%A8%AD%E8%A8%88%E5%BB%BA%E8%AD%B0%E8%90%BD%E5%9C%B0%E6%B8%85%E5%96%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A8%AD%E8%A8%88%E5%BB%BA%E8%AD%B0%E8%90%BD%E5%9C%B0%E6%B8%85%E5%96%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>
+<p><strong>把規則放到 Mediator，避免 Colleague 互相查詢</strong>（違規徵象：同事彼此拿彼此指標、到處 if/else）。</p>
+</li>
+<li>
+<p><strong>保持 Mediator 精瘦</strong>：</p>
+<ul>
+<li>規則多時，可拆為多個 mediator，或將子規則以策略／管線註入。</li>
+</ul>
+</li>
+<li>
+<p><strong>介面最小化</strong>：</p>
+<ul>
+<li>Colleague 對 Mediator 保持極簡 API（如 <code>Changed()</code>、<code>Send()</code>），降低雙方耦合。</li>
+</ul>
+</li>
+<li>
+<p><strong>並發規劃</strong>：</p>
+<ul>
+<li>對頻繁互動使用 channel、worker pool 或分片 mediator（按群組分房、按跑道分塔台）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">小型基準與複雜度直覺 
+    <div id="%E5%B0%8F%E5%9E%8B%E5%9F%BA%E6%BA%96%E8%88%87%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%9B%B4%E8%A6%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%8F%E5%9E%8B%E5%9F%BA%E6%BA%96%E8%88%87%E8%A4%87%E9%9B%9C%E5%BA%A6%E7%9B%B4%E8%A6%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>單次 broadcast：O(n)（n = 同事數），實務可用分區（房間/群組）分攤。</li>
+<li>私訊：O(1) 查表（map）→ O(1)。</li>
+<li>註冊/移除：O(1) map 操作；若附帶通知則另計。</li>
+<li>鎖競爭：依場景，可以 <strong>快照 + 鎖外通知</strong> 降低臨界區時間。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">迷你實作清單（可直接套用） 
+    <div id="%E8%BF%B7%E4%BD%A0%E5%AF%A6%E4%BD%9C%E6%B8%85%E5%96%AE%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%A5%97%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B7%E4%BD%A0%E5%AF%A6%E4%BD%9C%E6%B8%85%E5%96%AE%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%A5%97%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ol>
+<li>
+<p><strong>聊天室</strong>：如上 <code>ChatRoom</code>，加上：</p>
+<ul>
+<li>黑名單 <code>map[string]struct{}</code>；</li>
+<li>關鍵字過濾 <code>[]Rule</code>；</li>
+<li>訊息儲存（注入 interface <code>Store</code>）。</li>
+</ul>
+</li>
+<li>
+<p><strong>航管</strong>：<code>SimpleTower</code> → <code>PriorityTower</code>（用 heap 依優先權排），多跑道 <code>[]Runway</code>。</p>
+</li>
+<li>
+<p><strong>UI Dialog</strong>：Mediator + Widgets；加 debounce、表單驗證策略注入。</p>
+</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">補充：將廣播改為「鎖外通知」的安全寫法 
+    <div id="%E8%A3%9C%E5%85%85%E5%B0%87%E5%BB%A3%E6%92%AD%E6%94%B9%E7%82%BA%E9%8E%96%E5%A4%96%E9%80%9A%E7%9F%A5%E7%9A%84%E5%AE%89%E5%85%A8%E5%AF%AB%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A3%9C%E5%85%85%E5%B0%87%E5%BB%A3%E6%92%AD%E6%94%B9%E7%82%BA%E9%8E%96%E5%A4%96%E9%80%9A%E7%9F%A5%E7%9A%84%E5%AE%89%E5%85%A8%E5%AF%AB%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">ChatRoom</span><span class="p">)</span> <span class="nf">Broadcast</span><span class="p">(</span><span class="nx">from</span> <span class="nx">Colleague</span><span class="p">,</span> <span class="nx">msg</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 先拍快照</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">targets</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">Colleague</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">u</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">c</span><span class="p">.</span><span class="nx">users</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">name</span> <span class="o">==</span> <span class="nx">from</span><span class="p">.</span><span class="nf">Name</span><span class="p">()</span> <span class="p">{</span> <span class="k">continue</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">targets</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">targets</span><span class="p">,</span> <span class="nx">u</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 鎖外通知，避免長時間持鎖與 re-entrancy</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">u</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">targets</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">u</span><span class="p">.</span><span class="nf">Receive</span><span class="p">(</span><span class="nx">from</span><span class="p">.</span><span class="nf">Name</span><span class="p">(),</span> <span class="nx">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+
+
+<h1 class="relative group">一句話總結 
+    <div id="%E4%B8%80%E5%8F%A5%E8%A9%B1%E7%B8%BD%E7%B5%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E5%8F%A5%E8%A9%B1%E7%B8%BD%E7%B5%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p><strong>Mediator</strong> 透過「把互動規則集中在中介者」來<strong>解耦</strong>物件間複雜的多對多關係。
+在 Go 中，特別留意併發與臨界區，把規則封裝在 Mediator，讓同事物件保持單純，就能寫出可維護、可擴充、好測試的系統。</p></blockquote>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/state-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/state-with-go/">State with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/state/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    State
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          State with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/abstract-factory-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/abstract-factory-with-go/">Abstract factory with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/abstract-factory/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Abstract Factory
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Abstract factory with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/adapter-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/adapter-with-go/">Adapter with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/adapter/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Adapter
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Adapter with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\/Mediator with Go\/index.md"
+        var oid_likes = "likes_docs\/Mediator with Go\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/iterator-with-go/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Iterator with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/memento-with-go/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Memento with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="https://github.com/weiz-98"
+            title="">
+            
+            <span >
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+            </span>
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      WZ Chen
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://weiz-98.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

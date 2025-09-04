@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bridge on WZ Chen</title>
+    <link>https://weiz-98.github.io/tags/bridge/</link>
+    <description>Recent content in Bridge on WZ Chen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>110356047@g.nccu.edu.tw (WZ Chen)</managingEditor>
+    <webMaster>110356047@g.nccu.edu.tw (WZ Chen)</webMaster>
+    <copyright>© 2025 WZ Chen</copyright>
+    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://weiz-98.github.io/tags/bridge/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bridge with Go</title>
+      <link>https://weiz-98.github.io/docs/bridge-with-go/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <author>110356047@g.nccu.edu.tw (WZ Chen)</author>
+      <guid>https://weiz-98.github.io/docs/bridge-with-go/</guid>
+      <description>Bridge with Go</description>
+      
+    </item>
+    
+  </channel>
+</rss>

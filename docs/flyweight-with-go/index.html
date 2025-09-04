@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="twn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Flyweight with Go &middot; WZ Chen</title>
+  <meta name="title" content="Flyweight with Go &middot; WZ Chen" />
+  
+  <meta name="description" content="Flyweight with Go" />
+  <meta name="keywords" content="Go, Flyweight, " />
+  
+  
+  <link rel="canonical" href="https://weiz-98.github.io/docs/flyweight-with-go/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.1c9cd0d1ebaf117272b5c4f6bd49878475cb210d5e0da4f061632d779f5bb46851881c187e6e634dba5071c4e3d80e7d5cec1dd80443b2fa68acd358f9eda881.css"
+    integrity="sha512-HJzQ0euvEXJytcT2vUmHhHXLIQ1eDaTwYWMtd59btGhRiBwYfm5jTbpQccTj2A59XOwd2ARDsvporNNY&#43;e2ogQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.f88bdf262f6df8418ce7e23e3c2483bca8a1e86d51d7528a9c62be5681e9dc1b693a7c25bcf112b5242d2f72e5e44902ff17dda3ca098b4e15898622c6a9e87b.js"
+    integrity="sha512-&#43;IvfJi9t&#43;EGM5&#43;I&#43;PCSDvKih6G1R11KKnGK&#43;VoHp3BtpOnwlvPEStSQtL3Ll5EkC/xfdo8oJi04ViYYixqnoew==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://weiz-98.github.io/docs/flyweight-with-go/">
+  <meta property="og:site_name" content="WZ Chen">
+  <meta property="og:title" content="Flyweight with Go">
+  <meta property="og:description" content="Flyweight with Go">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:tag" content="Go">
+    <meta property="article:tag" content="Flyweight">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flyweight with Go">
+  <meta name="twitter:description" content="Flyweight with Go">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "All my post",
+    "name": "Flyweight with Go",
+    "headline": "Flyweight with Go",
+    
+    "abstract": "Flyweight with Go",
+    "inLanguage": "en",
+    "url" : "https:\/\/weiz-98.github.io\/docs\/flyweight-with-go\/",
+    "author" : {
+      "@type": "Person",
+      "name": "WZ Chen"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-04T00:00:00\u002b00:00",
+    "datePublished": "2025-09-04T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-09-04T00:00:00\u002b00:00",
+    
+    "keywords": ["Go","Flyweight"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2486"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="WZ Chen" />
+  
+  
+  
+  <link href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" rel="me" />
+  
+  
+  <link href="https://github.com/weiz-98" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W091VSDB08"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W091VSDB08');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">WZ Chen</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="All my post">
+        Blog
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Categories">
+        Categories
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About Me">
+        About
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="All my post">
+            Blog
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Categories">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/self-introduction/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About Me">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      ></a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >All my post</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/flyweight-with-go/"
+      >Flyweight with Go</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Flyweight with Go
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/flyweight/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Flyweight
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+        
+            
+          
+          
+<div class="flex author author-extra mt-4">
+  
+      
+      
+        
+          
+        
+        <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+          src="/img/seal_hu_62f4ddec727f91f4.jpg" />
+      
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <a  class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      WZ Chen
+    </a>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">菜鳥 coder</div>
+    
+    <div class="text-2xl sm:text-lg">
+      <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://www.linkedin.com/in/weizhe-chen-6b28a5131/" target="_blank"
+          aria-label="Linkedin" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+        
+        <a class="px-1 hover:text-primary-700 dark:hover:text-primary-400" href="https://github.com/weiz-98" target="_blank"
+          aria-label="Github" rel="me noopener noreferrer"><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>下面用 <strong>Flyweight（享元／輕量級）</strong> 在 Golang 做一份「觀念 → 結構 → Go 風格實作 → 效能與併發 → 易錯點」的完整解說，並附上可直接複製的程式範例（字型字形 Glyph、地圖地形 Tile、字串 Intern）。</p>
+<hr>
+
+
+<h1 class="relative group">Flyweight 是什麼？何時用？ 
+    <div id="flyweight-%E6%98%AF%E4%BB%80%E9%BA%BC%E4%BD%95%E6%99%82%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#flyweight-%E6%98%AF%E4%BB%80%E9%BA%BC%E4%BD%95%E6%99%82%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>定義（GoF）</strong>
+透過<strong>共享</strong>物件的<strong>不可變內在狀態（Intrinsic State）</strong>，把變動的<strong>外在狀態（Extrinsic State）<strong>由呼叫端提供，藉此在</strong>海量細粒度物件</strong>情境下<strong>節省記憶體</strong>與初始化成本。</p>
+<p><strong>什麼時候使用</strong></p>
+<ul>
+<li>你要建立<strong>非常多</strong>相似物件（數萬～數百萬），而且它們有<strong>可共享且不可變</strong>的部分（例如：字型字形、紋理、配色、行為表）。</li>
+<li>建立成本或記憶體很大（紋理/模型/字形/模板），重複載入浪費。</li>
+<li>身份/座標/當下狀態等「每一個實例不同」的資訊可以由<strong>外部傳入</strong>而不是存在物件裡。</li>
+</ul>
+<blockquote>
+<p>與 <strong>物件池（sync.Pool）<strong>不同：Flyweight 是</strong>長期共享不可變</strong>；物件池是<strong>短期重複使用可變</strong>。</p></blockquote>
+<hr>
+
+
+<h1 class="relative group">核心概念（超重要） 
+    <div id="%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E8%B6%85%E9%87%8D%E8%A6%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E8%B6%85%E9%87%8D%E8%A6%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Intrinsic（內在狀態）</strong>：可共享且不可變，例如「字形的向量路徑、字型度量、紋理貼圖」。</li>
+<li><strong>Extrinsic（外在狀態）</strong>：每次使用時不同，由呼叫端提供，例如「座標、顏色、縮放、目前血量」。</li>
+<li><strong>Factory</strong>：根據鍵（key）緩存並回傳共享實例；相同鍵回<strong>同一個指標</strong>。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例一：文字渲染的 Glyph 享元（經典） 
+    <div id="%E7%AF%84%E4%BE%8B%E4%B8%80%E6%96%87%E5%AD%97%E6%B8%B2%E6%9F%93%E7%9A%84-glyph-%E4%BA%AB%E5%85%83%E7%B6%93%E5%85%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B%E4%B8%80%E6%96%87%E5%AD%97%E6%B8%B2%E6%9F%93%E7%9A%84-glyph-%E4%BA%AB%E5%85%83%E7%B6%93%E5%85%B8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>「字形」是共享的（內在狀態），「位置/大小/顏色」是外在狀態。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">glyph</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== Flyweight（共享） =====</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Glyph</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">char</span>   <span class="kt">rune</span>   <span class="c1">// 內在：字元</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">path</span>   <span class="p">[]</span><span class="kt">byte</span> <span class="c1">// 內在：向量路徑/點陣（示意，通常很大）</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">metric</span> <span class="nx">Metric</span> <span class="c1">// 內在：度量</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Metric</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Advance</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Ascend</span>  <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Descend</span> <span class="kt">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用時由外部提供外在狀態：x,y,size,color 等</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">g</span> <span class="o">*</span><span class="nx">Glyph</span><span class="p">)</span> <span class="nf">Draw</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">size</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">color</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 這裡只示意輸出；實務會呼叫 GPU/2D API</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;draw &#39;%c&#39; @(%d,%d) size=%d color=%06x adv=%d\n&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">g</span><span class="p">.</span><span class="nx">char</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">color</span><span class="p">,</span> <span class="nx">g</span><span class="p">.</span><span class="nx">metric</span><span class="p">.</span><span class="nx">Advance</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== Flyweight Factory =====</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">GlyphFactory</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mu</span>     <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cache</span>  <span class="kd">map</span><span class="p">[</span><span class="kt">rune</span><span class="p">]</span><span class="o">*</span><span class="nx">Glyph</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">loader</span> <span class="kd">func</span><span class="p">(</span><span class="kt">rune</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Glyph</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="c1">// 真實載入器（可讀檔/解析字型）</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewFactory</span><span class="p">(</span><span class="nx">loader</span> <span class="kd">func</span><span class="p">(</span><span class="kt">rune</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Glyph</span><span class="p">,</span> <span class="kt">error</span><span class="p">))</span> <span class="o">*</span><span class="nx">GlyphFactory</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">GlyphFactory</span><span class="p">{</span><span class="nx">cache</span><span class="p">:</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">rune</span><span class="p">]</span><span class="o">*</span><span class="nx">Glyph</span><span class="p">),</span> <span class="nx">loader</span><span class="p">:</span> <span class="nx">loader</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">GlyphFactory</span><span class="p">)</span> <span class="nf">Get</span><span class="p">(</span><span class="nx">r</span> <span class="kt">rune</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Glyph</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">f</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">g</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">cache</span><span class="p">[</span><span class="nx">r</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">f</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">g</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">f</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 慢路徑：載入一次，然後放進 cache</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">f</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="nx">f</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">g</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">cache</span><span class="p">[</span><span class="nx">r</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span> <span class="c1">// double-check</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">g</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">g</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">loader</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">f</span><span class="p">.</span><span class="nx">cache</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="p">=</span> <span class="nx">g</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">g</span><span class="p">,</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ===== Demo Loader（示意，假裝昂貴） =====</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">mockLoad</span><span class="p">(</span><span class="nx">r</span> <span class="kt">rune</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">Glyph</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 假裝這裡做了昂貴的解析</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">Glyph</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">char</span><span class="p">:</span> <span class="nx">r</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">path</span><span class="p">:</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="c1">// 省略</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">metric</span><span class="p">:</span> <span class="nx">Metric</span><span class="p">{</span><span class="nx">Advance</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">Ascend</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">Descend</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>使用</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">f</span> <span class="o">:=</span> <span class="nx">glyph</span><span class="p">.</span><span class="nf">NewFactory</span><span class="p">(</span><span class="nx">glyph</span><span class="p">.</span><span class="nx">mockLoad</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">text</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">rune</span><span class="p">(</span><span class="s">&#34;HELLO WORLD&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">:=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">g</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>            <span class="c1">// 相同字元共享同一實例</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">g</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mh">0x333333</span><span class="p">)</span> <span class="c1">// 外在：座標/尺寸/顏色</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">x</span> <span class="o">+=</span> <span class="nx">g</span><span class="p">.</span><span class="nx">metric</span><span class="p">.</span><span class="nx">Advance</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>重點</strong></p>
+<ul>
+<li><code>Glyph</code> 不保存座標/顏色（外在）；呼叫 <code>Draw</code> 時由外部傳入。</li>
+<li>Factory 以 <code>map[rune]*Glyph</code> 緩存，避免重複載入/配置。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例二：地圖地形 Tile（共享地形，外在位置） 
+    <div id="%E7%AF%84%E4%BE%8B%E4%BA%8C%E5%9C%B0%E5%9C%96%E5%9C%B0%E5%BD%A2-tile%E5%85%B1%E4%BA%AB%E5%9C%B0%E5%BD%A2%E5%A4%96%E5%9C%A8%E4%BD%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B%E4%BA%8C%E5%9C%B0%E5%9C%96%E5%9C%B0%E5%BD%A2-tile%E5%85%B1%E4%BA%AB%E5%9C%B0%E5%BD%A2%E5%A4%96%E5%9C%A8%E4%BD%8D%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>有 10^6 個方格，但實際地形種類只有幾十個。共享地形資料（名稱、紋理、行為），外在狀態是格子的座標。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">tile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 內在：種類資料（共享，不可變）</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Terrain</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span>   <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Speed</span>  <span class="kt">float32</span> <span class="c1">// 移動速度倍率</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Pass</span>   <span class="kt">bool</span>    <span class="c1">// 可否通行</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">TextureID</span> <span class="kt">int</span>  <span class="c1">// 紋理參照（假想）</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Flyweight Factory</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">TerrainRepo</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">m</span>  <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">Terrain</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewTerrainRepo</span><span class="p">()</span> <span class="o">*</span><span class="nx">TerrainRepo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">&amp;</span><span class="nx">TerrainRepo</span><span class="p">{</span><span class="nx">m</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">Terrain</span><span class="p">{}}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">TerrainRepo</span><span class="p">)</span> <span class="nf">Register</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">Terrain</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 啟動期註冊</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">();</span> <span class="k">defer</span> <span class="nx">r</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">t</span><span class="p">.</span><span class="nx">Name</span><span class="p">]</span> <span class="p">=</span> <span class="nx">t</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">TerrainRepo</span><span class="p">)</span> <span class="nf">Get</span><span class="p">(</span><span class="nx">name</span> <span class="kt">string</span><span class="p">)</span> <span class="o">*</span><span class="nx">Terrain</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">r</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">();</span> <span class="k">defer</span> <span class="nx">r</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 外在狀態：每格位置</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Cell</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span> <span class="kt">int</span>      <span class="c1">// 外在：座標</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">T</span>    <span class="o">*</span><span class="nx">Terrain</span> <span class="c1">// 指向共享 Terrain</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">Cell</span><span class="p">)</span> <span class="nf">Draw</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;(%d,%d) %s tex=%d\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">X</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">Y</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">T</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">c</span><span class="p">.</span><span class="nx">T</span><span class="p">.</span><span class="nx">TextureID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>組裝</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">repo</span> <span class="o">:=</span> <span class="nx">tile</span><span class="p">.</span><span class="nf">NewTerrainRepo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">repo</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">tile</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="s">&#34;grass&#34;</span><span class="p">,</span> <span class="nx">Speed</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="nx">Pass</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">TextureID</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="nx">repo</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">tile</span><span class="p">.</span><span class="nx">Terrain</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="s">&#34;water&#34;</span><span class="p">,</span> <span class="nx">Speed</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="nx">Pass</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span> <span class="nx">TextureID</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 建立 1000x1000 地圖，每格僅存指標（8 bytes）到共享 Terrain</span>
+</span></span><span class="line"><span class="cl"><span class="nx">grid</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="nx">tile</span><span class="p">.</span><span class="nx">Cell</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1_000_000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">y</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">y</span> <span class="p">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">y</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">name</span> <span class="o">:=</span> <span class="s">&#34;grass&#34;</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">x</span><span class="o">%</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span> <span class="nx">name</span> <span class="p">=</span> <span class="s">&#34;water&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">grid</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">grid</span><span class="p">,</span> <span class="nx">tile</span><span class="p">.</span><span class="nx">Cell</span><span class="p">{</span><span class="nx">X</span><span class="p">:</span><span class="nx">x</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span><span class="nx">y</span><span class="p">,</span> <span class="nx">T</span><span class="p">:</span> <span class="nx">repo</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">name</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">Draw</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>重點</strong></p>
+<ul>
+<li>若把地形資料重複存到每格，記憶體會爆；用指標共享可大幅下降用量。</li>
+<li><code>Cell</code> 僅保存外在狀態（座標）+ 指向共享內在（<code>*Terrain</code>）。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">範例三：字串 Intern（去重共享常見字串） 
+    <div id="%E7%AF%84%E4%BE%8B%E4%B8%89%E5%AD%97%E4%B8%B2-intern%E5%8E%BB%E9%87%8D%E5%85%B1%E4%BA%AB%E5%B8%B8%E8%A6%8B%E5%AD%97%E4%B8%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AF%84%E4%BE%8B%E4%B8%89%E5%AD%97%E4%B8%B2-intern%E5%8E%BB%E9%87%8D%E5%85%B1%E4%BA%AB%E5%B8%B8%E8%A6%8B%E5%AD%97%E4%B8%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>在解析大量 JSON/CSV 時，重複的字串非常多。用 Intern 把相同內容的字串轉為<strong>同一個底層實體</strong>，減少重複配置與 GC 壓力（僅適合熱門小字串）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">intern</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Interner</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">mu</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">m</span>  <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span> <span class="c1">// key 與 value 同內容；value 是那個共享實例</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">New</span><span class="p">()</span> <span class="o">*</span><span class="nx">Interner</span> <span class="p">{</span> <span class="k">return</span> <span class="o">&amp;</span><span class="nx">Interner</span><span class="p">{</span><span class="nx">m</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{}}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Return a shared string with the same content.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">in</span> <span class="o">*</span><span class="nx">Interner</span><span class="p">)</span> <span class="nf">Intern</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RLock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">in</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">s</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">RUnlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Lock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 再查一次避免重複放入</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">in</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">s</span><span class="p">];</span> <span class="nx">ok</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">in</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">s</span><span class="p">]</span> <span class="p">=</span> <span class="nx">s</span> <span class="c1">// 將此內容的字串本身作為共享實體</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">in</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nf">Unlock</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>使用（示意）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">it</span> <span class="o">:=</span> <span class="nx">intern</span><span class="p">.</span><span class="nf">New</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span> <span class="o">:=</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Intern</span><span class="p">(</span><span class="s">&#34;status&#34;</span><span class="p">)</span> <span class="c1">// 之後多次得到的是同一底層字串</span>
+</span></span><span class="line"><span class="cl"><span class="nx">b</span> <span class="o">:=</span> <span class="nx">it</span><span class="p">.</span><span class="nf">Intern</span><span class="p">(</span><span class="s">&#34;status&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">_</span> <span class="p">=</span> <span class="p">(</span><span class="o">&amp;</span><span class="nx">a</span> <span class="o">==</span> <span class="o">&amp;</span><span class="nx">b</span><span class="p">)</span> <span class="c1">// false（變數位址），但底層資料在實務上會共用同一實體</span>
+</span></span></code></pre></div><blockquote>
+<p>注意：Go 的字串是不可變的，Intern 化適合熱門小字串；不要對大型、一次性字串做 Intern（無益反害）。</p></blockquote>
+<hr>
+
+
+<h1 class="relative group">與其他技巧比較 
+    <div id="%E8%88%87%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7%E6%AF%94%E8%BC%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%88%87%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7%E6%AF%94%E8%BC%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<table>
+  <thead>
+      <tr>
+          <th>技術</th>
+          <th>目的</th>
+          <th>何時用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Flyweight</strong></td>
+          <td><strong>共享不可變內在狀態</strong>，由外部提供外在狀態</td>
+          <td>大量細粒度物件、重複度高</td>
+      </tr>
+      <tr>
+          <td><strong>Cache（快取）</strong></td>
+          <td>快速重用「計算/載入結果」</td>
+          <td>可與 Flyweight 合作；Flyweight 更關注<strong>實體共享</strong></td>
+      </tr>
+      <tr>
+          <td><strong>sync.Pool</strong></td>
+          <td>降低暫時性配置與 GC</td>
+          <td>物件<strong>可變且可重置</strong>，短期借還，不是長期共享</td>
+      </tr>
+      <tr>
+          <td><strong>Prototype</strong></td>
+          <td>透過<strong>複製</strong>現有物件建立新實例</td>
+          <td>不一定節省記憶體（仍是多份），偏重建構成本</td>
+      </tr>
+      <tr>
+          <td><strong>Singleton</strong></td>
+          <td>全域唯一</td>
+          <td>不是「很多個共享同內在」，而是<strong>就一個</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+
+<h1 class="relative group">效能與併發要點（Go 實戰） 
+    <div id="%E6%95%88%E8%83%BD%E8%88%87%E4%BD%B5%E7%99%BC%E8%A6%81%E9%BB%9Ego-%E5%AF%A6%E6%88%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%88%E8%83%BD%E8%88%87%E4%BD%B5%E7%99%BC%E8%A6%81%E9%BB%9Ego-%E5%AF%A6%E6%88%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>不可變性</strong>：享元內在狀態需<strong>只讀</strong>。若必須改，等於破壞共享假設。</li>
+<li><strong>Factory 併發</strong>：用 <code>sync.RWMutex</code> 或 <code>sync.Map</code>；高競爭熱點可採 <strong>雙重查核</strong>（如上）。</li>
+<li><strong>鍵設計</strong>：鍵必須唯一描述內在狀態（如字元、顏色、貼圖 ID、哈希）。</li>
+<li><strong>熱啟動 vs 懶載入</strong>：熱門鍵可在啟動先註冊（避免第一個請求卡載入）；其餘懶載。</li>
+<li><strong>GC 與壽命</strong>：共享實例常為長壽；確保不會無界成長（可輔以 LRU/TTL，如果「享元種類」也很多）。</li>
+<li><strong>測量</strong>：以 <code>-bench</code> / <code>-memprofile</code> 比較「共享 vs 非共享」的配置數與總位元組。</li>
+</ul>
+<hr>
+
+
+<h1 class="relative group">常見陷阱與最佳實務 
+    <div id="%E5%B8%B8%E8%A6%8B%E9%99%B7%E9%98%B1%E8%88%87%E6%9C%80%E4%BD%B3%E5%AF%A6%E5%8B%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E8%A6%8B%E9%99%B7%E9%98%B1%E8%88%87%E6%9C%80%E4%BD%B3%E5%AF%A6%E5%8B%99" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ol>
+<li><strong>把外在狀態放進享元</strong> → 失去共享；請在呼叫時傳入外在狀態。</li>
+<li><strong>可變共享</strong> → data race / 汙染其他使用者。享元應當不可變。</li>
+<li><strong>鍵設計不當</strong> → 同一內在狀態得到多份實例（浪費）；或撞鍵導致語義錯誤。</li>
+<li><strong>過度設計</strong>：物件量不大或共享比例低時，Flyweight 的複雜度不划算。</li>
+<li><strong>與快取界線模糊</strong>：Flyweight 著重<strong>實體唯一性</strong>與<strong>不可變共享</strong>；Cache 偏<strong>結果重用</strong>。分清楚職責。</li>
+</ol>
+<hr>
+
+
+<h1 class="relative group">迷你整合示例：Glyph + 工廠 + 單元測試重點 
+    <div id="%E8%BF%B7%E4%BD%A0%E6%95%B4%E5%90%88%E7%A4%BA%E4%BE%8Bglyph--%E5%B7%A5%E5%BB%A0--%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E9%87%8D%E9%BB%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B7%E4%BD%A0%E6%95%B4%E5%90%88%E7%A4%BA%E4%BE%8Bglyph--%E5%B7%A5%E5%BB%A0--%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E9%87%8D%E9%BB%9E" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// 測試：同字元應回同指標；外在狀態不影響共享</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span> <span class="o">:=</span> <span class="nx">glyph</span><span class="p">.</span><span class="nf">NewFactory</span><span class="p">(</span><span class="nx">glyph</span><span class="p">.</span><span class="nx">mockLoad</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">g1</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">g2</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">g1</span> <span class="o">!=</span> <span class="nx">g2</span> <span class="p">{</span> <span class="nx">t</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="s">&#34;not same flyweight instance for &#39;A&#39;&#34;</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 外在狀態變化：不影響共享</span>
+</span></span><span class="line"><span class="cl"><span class="nx">g1</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mh">0x000000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">g2</span><span class="p">.</span><span class="nf">Draw</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mh">0xff0000</span><span class="p">)</span>
+</span></span></code></pre></div><hr>
+
+
+<h1 class="relative group">小結 
+    <div id="%E5%B0%8F%E7%B5%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%8F%E7%B5%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>Flyweight</strong> 的精髓：<strong>把不變的大東西共享</strong>（內在），把每次不同的小東西<strong>外部化</strong>（外在）。</li>
+<li>在 Go：用 <strong>map + 鎖（或 sync.Map）</strong> 建 Factory；確保享元<strong>不可變</strong>；在呼叫時傳入<strong>外在狀態</strong>。</li>
+<li>適合「<strong>海量、重複度高</strong>」的場景：字形、圖塊、樣板、配色、規則表、字串 key 等。</li>
+<li>先量測，再導入；導入後持續以 pprof/metrics 觀察記憶體改善幅度與長期壽命。</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/chain-of-responsibility-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/chain-of-responsibility-with-go/">Chain of Responsibility with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chain-of-responsibility/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chain of Responsibility
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Chain of Responsibility with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/command-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/command-with-go/">Command with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/command/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Command
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Command with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/facade-with-go/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/facade-with-go/">Facade with Go</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+     <div style="cursor: pointer;" onclick="window.open(&#34;/authors/wz-chen/&#34;,'_self');return false;">WZ Chen</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/design-pattern/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Design Pattern
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/go/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Go
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/facade/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Facade
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          Facade with Go
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\/Flyweight with Go\/index.md"
+        var oid_likes = "likes_docs\/Flyweight with Go\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/factory-method-with-go/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Factory method with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/interpreter-with-go/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Interpreter with Go</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-04T00:00:00&#43;00:00">2025-09-04</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="https://github.com/weiz-98"
+            title="">
+            
+            <span >
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+            </span>
+            
+            
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      WZ Chen
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://weiz-98.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
